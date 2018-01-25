@@ -1,0 +1,28 @@
+.navbar-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #03a9f4;
+  height: 100%;
+  width: 50%;
+}
+
+.bucket-logo {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.yellow {
+  color: #fde010;
+  text-shadow: 0 0 2px #fde010;
+}
+
+.un {
+  color: rgba(3, 144, 244, 0.35);
+}
