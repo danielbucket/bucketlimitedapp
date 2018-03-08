@@ -1,9 +1,9 @@
-html {
-  font-size: 62.5%;
+.App_container {
+	display: grid;
+	grid-template-rows:
+		[header] 12.5em
+		[main] 1fr
+		[footer] 15em;
 }
 
-.App_container {
-  border: 1px solid green;
-  height: 100%;
-}
 

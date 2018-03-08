@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
+import LoginModule from '../LoginModule/LoginModule';
 const icon = require("././images/bucket-icon-yellow-b.png")
 
 export default class HeaderComponent extends Component {
@@ -8,18 +9,19 @@ export default class HeaderComponent extends Component {
 		this.state={}
 	}
 
+
 	render() {
 		return (
-    <header className="header">
-      <img 	className="bucket-logo"
+    <header className="header_container">
+      <img 	className="business_logo"
         		src={ icon }
             alt="bucket logo"	/>
-      <h1 className="page-title">
-        <span className="yellow"><span className="the-b">B</span>ucket</span>
+      <h1 className="business_name">
+        <span className="the-b">B</span>ucket
         <span className="un">Un</span>
-        <span className="yellow">Limited</span>
-      </h1>
-
+        Limited
+      </h1>   
+      <LoginModule />
     </header>
 		)
 	}

@@ -1,0 +1,7 @@
+.login_box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid red;
+	/*height: 8.5em;*/
+}
