@@ -45,14 +45,15 @@
 
 	.header_container {
 		background-color: orange;
-		height: 11em;
+
+		grid-template-rows:
+			[headerMobileViewTOP] 1fr
+			[headerMobileViewBOTTOM] 1fr;
+			
 		grid-template-columns:
 			[logo] 1fr
 			[app] 1fr;
-
-		grid-template-rows:
-			[mobileTOP] 1fr
-			[mobileBOTTOM] 1fr;
+		/*height: 11em;*/
 	}
 
 	.business_name {
