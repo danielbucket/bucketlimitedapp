@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './LoginModule.css';
-
+import style from './css/LoginModule.css';
 
 export default class LoginModule extends Component {
 	constructor() {
