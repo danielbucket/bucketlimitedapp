@@ -1,0 +1,12 @@
+@media (max-width: 825px) {
+	.loginHidden {
+		display: none;
+	}
+
+	.login_box {
+		
+  justify-self: center;
+  align-self: center;
+	}
+
+}

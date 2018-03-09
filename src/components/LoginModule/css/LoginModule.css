@@ -10,12 +10,3 @@
   justify-self: right;
   align-self: center;
 }
-
-@media (max-width: 825px) {
-	.login_box {
-		
-  justify-self: center;
-  align-self: center;
-	}
-
-}

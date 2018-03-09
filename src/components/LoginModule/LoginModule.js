@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './css/LoginModule.css';
+import style from './css/LoginModuleRoot.css';
 
 export default class LoginModule extends Component {
 	constructor() {
@@ -21,7 +21,7 @@ export default class LoginModule extends Component {
 	}
 
 	submitLogin() {
-		console.log('responsability takes practice, mutha fuckaaaaaaa!')
+		console.log('responsability comes with practice, mutha fuckaaaaaaa!')
 	}
 
 
@@ -33,21 +33,21 @@ export default class LoginModule extends Component {
 				<h3 className="login_text">Log In / Sign Up</h3>
 				<input id="userName"
 							 type="text"
-							 className="username_text"
+							 className="username_text loginHidden"
 							 placeholder="user name"
 							 value={ userName }
 							 onChange = {e => this.handleChange(e)} />
 
 				<input id="email"
 							 type="email"
-							 className="email_text"
+							 className="email_text loginHidden"
 							 placeholder="email"
 							 value={ email }
 							 onChange = {e => this.handleChange(e)} />
 
 				<input id="password"
 							 type="text"
-							 className="password_text"
+							 className="password_text loginHidden"
 							 placeholder="password"
 							 value={ password }
 							 onChange = {e => this.handleChange(e)} />
@@ -55,6 +55,7 @@ export default class LoginModule extends Component {
 
 
 				<button id="submitBtn"
+								className="submitBtn loginHidden"
 								onClick={() => this.submitLogin()}>
 								Submit</button>
 			</section>
