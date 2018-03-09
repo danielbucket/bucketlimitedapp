@@ -6,6 +6,8 @@
 		[footer] 15em;
 }
 
+
+
 @media (max-width: 825px) {
 	.App_container {
 		grid-template-rows:

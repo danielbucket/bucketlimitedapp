@@ -1,0 +1,38 @@
+@media (max-width: 825px) {
+
+	.header_container {
+		background-color: yellow;
+
+		grid-template-rows:
+			[headerMobileViewTOP] 1fr
+			[headerMobileViewBOTTOM] 1fr;
+			
+		grid-template-columns:
+			[logo] 1fr
+			[app] 1fr;
+	}
+
+	.business_name {
+		font-size: calc(.25em + 6vw);
+		line-height: calc(.25em + 6vw);
+		letter-spacing: .1em;
+
+		grid-column: span 2;
+		grid-row: 1;
+
+    justify-self: center;
+    align-self: center;
+	}
+
+	.bucket_logo {
+		grid-column: 1 / 1;
+		grid-row: 2;
+	}
+
+	.login_box {
+		/*justify-self: right;*/
+		/*align-self: center;*/
+		grid-column: 2 / 2;
+		grid-row: 2;
+	}
+}

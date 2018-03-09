@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './Header.css';
 import LoginModule from '../LoginModule/LoginModule';
-const icon = require("././images/bucket-icon-yellow-b.png")
+import style from './css/root.css';
+
+const icon = require("././images/bucket-icon-yellow-b.png");
 
 export default class HeaderComponent extends Component {
 	constructor() {
