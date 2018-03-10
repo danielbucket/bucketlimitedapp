@@ -1,2 +1,3 @@
 @import url('./LoginModule.css');
-@import url('./mediaQuerymax825px.css')
+@import url('./mediaQuerymax825px.css');
+@import url('./mediaQuerymax450px.css');

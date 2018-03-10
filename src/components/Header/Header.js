@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginModule from '../LoginModule/LoginModule';
-import style from './css/root.css';
+import './css/HeaderRoot.css';
 
 const icon = require("././images/bucket-icon-yellow-b.png");
 

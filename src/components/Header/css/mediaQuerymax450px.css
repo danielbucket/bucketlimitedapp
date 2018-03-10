@@ -1,6 +1,14 @@
 @media (max-width: 450px) {
-	
+	.header_container {
+		/*border: 1px solid red;*/
+	}
+
+	.business_logo {
+		height: 5em;
+		width: 5em;
+	}
+
 	.business_name {
-		background-color: pink;
+		/*background-color: pink;*/
 	}
 }

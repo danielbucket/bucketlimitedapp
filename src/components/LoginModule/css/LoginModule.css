@@ -1,12 +1,18 @@
 .login_box {
 	width: 18em;
-	/*min-width: 5em;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	border: 1px solid red;
-	/*height: 8.5em;*/
 
-  justify-self: right;
+  justify-self: center;
   align-self: center;
+}
+
+.login_box {
+	
+}
+
+.inactive {
+	display: none;
 }

@@ -1,7 +1,7 @@
 @media (max-width: 825px) {
 
 	.header_container {
-		background-color: yellow;
+		/*background-color: yellow;*/
 
 		grid-template-rows:
 			[headerMobileViewTOP] 1fr

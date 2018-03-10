@@ -14,17 +14,18 @@
 }
 
 .business_logo {
-	width: 12em;
-	height: 12em;
+	width: 10em;
+	height: 10em;
 
-	justify-self: center;
+	justify-self: left;
 	align-self: center;
+	margin-left: 2em;
 }
 
 .business_name {
 	font-family: 'Monoton', cursive;
 	font-size: 5em;
-	margin: 0;
+	margin-bottom: .25em;
 	color: var(--bucket-brown);
 }
 

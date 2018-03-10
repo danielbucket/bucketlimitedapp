@@ -16,4 +16,13 @@
 	}
 }
 
+@media (max-width: 450px) {
+	.App_container {
+		grid-template-rows: 
+			[header] 10em
+			[main] 1fr
+			[footer] 15em;
+	}
+}
+
 
