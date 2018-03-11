@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Proptypes } from 'react';
 import style from './css/LoginModuleRoot.css';
 
 export default class LoginModule extends Component {
@@ -32,8 +32,6 @@ export default class LoginModule extends Component {
 		} else {
 			this.setState({ active:false })	
 		}
-
-		console.log(this.state.active)
 	}
 
 

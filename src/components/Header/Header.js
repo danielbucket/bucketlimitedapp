@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Proptypes } from 'react';
 import LoginModule from '../LoginModule/LoginModule';
 import './css/HeaderRoot.css';
 
-const icon = require("././images/bucket-icon-yellow-b.png");
+// const icon = require("././images/bucket-icon-yellow-b.png");
 
 export default class HeaderComponent extends Component {
 	constructor() {
@@ -12,10 +12,11 @@ export default class HeaderComponent extends Component {
 
 
 	render() {
+    const { businessLogo } = this.props;
 		return (
     <header className="header_container">
       <img 	className="business_logo"
-        		src={ icon }
+        		src={ businessLogo }
             alt="bucket logo"	/>
       <h1 className="business_name">
         <span className="the-b">B</span>ucket
