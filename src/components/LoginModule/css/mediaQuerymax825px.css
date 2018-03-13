@@ -1,8 +1,4 @@
 @media (max-width: 825px) {
-	.loginHidden {
-		display: none;
-	}
-
 	.login_text {
 		display: flex;
 		justify-content: center;
