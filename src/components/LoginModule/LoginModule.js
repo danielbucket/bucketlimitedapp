@@ -8,8 +8,7 @@ export default class LoginModule extends Component {
 			userName: "",
 			email: "",
 			password: "",
-			active: false,
-			disabled: false
+			loginActive: false
 		}
 
 		this.handleChange = this.handleChange.bind(this);
@@ -28,50 +27,58 @@ export default class LoginModule extends Component {
 	}
 
 	toggleClass() {
-		if (!this.state.active) {
-			this.setState({ disabled:true })
-			this.setState({ active:true })
+		if (!this.state.loginActive) {
+			this.setState({ loginActive:true })
+		} else {
+			this.setState({ loginActive:false })
 		}
 	}
 
 
 	render() {
-		const { userName,email,password,disabled } = this.state;
-		let status = this.state.active ? "active" : "inactive";
+		const { userName,email,password } = this.state;
+		let status = this.state.loginActive ? "active credentialsContainer" : "inactive credentialsContainer";
 
 		return (
-			<section className="login_box">
-				<button className="login_text"
-								disabled={ disabled }
-								onClick={() => this.toggleClass() }>
-							Log In / Sign Up
-				</button>
+			<section className="loginBox">
+				<div className="loginBtnContainer">
+					<button id="loginBtn"
+									className="loginBtn moduleBtn"
+									onClick={ () => this.toggleClass() }>
+								Log In / Sign Up
+					</button>
+				</div>
+
 				<div className={ status }>
 					<input id="userName"
 								 type="text"
-								 className="username_text"
+								 className="usernameText loginInput"
 								 placeholder="user name"
 								 value={ userName }
-								 onChange = {e => this.handleChange(e)} />
+								 onChange = {e => this.handleChange(e)}
+					/>
 
 					<input id="email"
 								 type="email"
-								 className="email_text"
+								 className="emailText loginInput"
 								 placeholder="email"
 								 value={ email }
-								 onChange = {e => this.handleChange(e)} />
+								 onChange = {e => this.handleChange(e)}
+					/>
 
 					<input id="password"
 								 type="text"
-								 className="password_text"
+								 className="passwordText loginInput"
 								 placeholder="password"
 								 value={ password }
-								 onChange = {e => this.handleChange(e)} />
+								 onChange = {e => this.handleChange(e)}
+					/>
 
 					<button id="submitBtn"
-									className="submitBtn"
+									className="submitBtn moduleBtn"
 									onClick={() => this.submitLogin()}>
-									Submit</button>
+									Submit
+					</button>
 				</div>
 			</section>
 		)

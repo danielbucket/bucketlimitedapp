@@ -8,11 +8,18 @@ export default class HeaderComponent extends Component {
 	constructor() {
 		super()
 		this.state={}
+    this.loginModule = this.loginModule.bind(this);
 	}
 
+  loginModule() {
+    return (
+      <LoginModule />
+      )
+  }
 
 	render() {
     const { businessLogo } = this.props;
+
 		return (
     <header className="header_container">
       <img 	className="business_logo"
@@ -22,7 +29,8 @@ export default class HeaderComponent extends Component {
         <span className="the-b">B</span>ucket
         <span className="un">Un</span>
         Limited
-      </h1>   
+      </h1>
+
       <LoginModule />
     </header>
 		)
