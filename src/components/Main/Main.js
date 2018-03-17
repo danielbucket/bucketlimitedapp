@@ -1,4 +1,4 @@
-import React, { Component, Proptypes } from 'react';
+import React, { Component } from 'react';
 import './Main.css';
 
 export default class Main extends Component {

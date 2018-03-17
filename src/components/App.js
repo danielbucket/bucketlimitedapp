@@ -1,10 +1,11 @@
-import React, { Component, Proptypes } from 'react';
-import style from './App.css';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
+import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
   	const { businessLogo } = this.props;
 
@@ -18,4 +19,6 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+	businessLogo: PropTypes.string
+}

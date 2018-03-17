@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './css/LoginModuleRoot.css';
+import './css/LoginModule.css';
+import './css/mediaQuerymax825px.css';
+import './css/mediaQuerymax450px.css';
 
 export default class LoginModule extends Component {
 	constructor() {

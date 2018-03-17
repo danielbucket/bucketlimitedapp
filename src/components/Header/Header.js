@@ -1,21 +1,17 @@
-import React, { Component, Proptypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LoginModule from '../LoginModule/LoginModule';
-import './css/HeaderRoot.css';
 
-// const icon = require("././images/bucket-icon-yellow-b.png");
+import './css/Header.css';
+import './css/mediaQuerymax825px.css';
+import './css/mediaQuerymax450px.css';
 
 export default class HeaderComponent extends Component {
 	constructor() {
 		super()
 		this.state={}
-    this.loginModule = this.loginModule.bind(this);
 	}
 
-  loginModule() {
-    return (
-      <LoginModule />
-      )
-  }
 
 	render() {
     const { businessLogo } = this.props;
@@ -35,4 +31,8 @@ export default class HeaderComponent extends Component {
     </header>
 		)
 	}
+};
+
+HeaderComponent.propTypes = {
+  businessLogo: PropTypes.string
 }
