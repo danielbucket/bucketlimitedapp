@@ -1,4 +1,4 @@
-import React, { Component, Proptypes } from 'react';
+import React, { Component } from 'react';
 import './css/LoginModuleRoot.css';
 
 export default class LoginModule extends Component {
@@ -13,20 +13,25 @@ export default class LoginModule extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.toggleClass = this.toggleClass.bind(this);
+		this.submitLogin = this.submitLogin.bind(this);
 	}
 
 	handleChange(e) {
 		const input = e.target.value;
 		const stateKey = e.target.id;
 
-		this.setState({ [stateKey]:input })
+		this.setState({ [stateKey]:input });
 	}
 
 	submitLogin() {
-		console.log('responsability comes with practice, mutha fuckaaaaaaa!')
+		console.log("moduleLogin state: ", this.state)
 	}
 
 	toggleClass() {
+		// the name toggleClass can be misleading here as it 
+		// doesn't actually change the className. Instead it
+		// changes a true / false value
+
 		if (!this.state.loginActive) {
 			this.setState({ loginActive:true })
 		} else {
@@ -42,10 +47,10 @@ export default class LoginModule extends Component {
 		return (
 			<section className="loginBox">
 				<div className="loginBtnContainer">
-					<button id="loginBtn"
+					<button id="login_Btn"
 									className="loginBtn moduleBtn"
 									onClick={ () => this.toggleClass() }>
-								Log In / Sign Up
+							Log In / Sign Up
 					</button>
 				</div>
 
@@ -55,7 +60,7 @@ export default class LoginModule extends Component {
 								 className="usernameText loginInput"
 								 placeholder="user name"
 								 value={ userName }
-								 onChange = {e => this.handleChange(e)}
+								 onChange = { e => this.handleChange(e) }
 					/>
 
 					<input id="email"
@@ -63,7 +68,7 @@ export default class LoginModule extends Component {
 								 className="emailText loginInput"
 								 placeholder="email"
 								 value={ email }
-								 onChange = {e => this.handleChange(e)}
+								 onChange = { e => this.handleChange(e) }
 					/>
 
 					<input id="password"
@@ -71,16 +76,16 @@ export default class LoginModule extends Component {
 								 className="passwordText loginInput"
 								 placeholder="password"
 								 value={ password }
-								 onChange = {e => this.handleChange(e)}
+								 onChange = { e => this.handleChange(e) }
 					/>
 
 					<button id="submitBtn"
 									className="submitBtn moduleBtn"
-									onClick={() => this.submitLogin()}>
+									onClick={ () => this.submitLogin() }>
 									Submit
 					</button>
 				</div>
 			</section>
 		)
 	}
-}
+};
