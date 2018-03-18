@@ -1,9 +1,34 @@
-.puc {
-	width: 90%;
+.pucContainer {
+	z-index: 9999;
 	height: 90%;
+
+	width: 90vw;
 	border: 5px solid red;
+	border-radius: 40px;
+  box-shadow: 0 0 30px 30px red;
+	margin: 4% 5%;
+	background-color: #ffffffe3;
 
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+.popUpInactive {
+	display: none;
+}
+
+.pucInnerBoxShadow {
+	box-shadow: inset 0 0 30px 13px red;
+	border-radius: 30px;
+	height: 100%;
+	width: 100%;
+	padding: 4% 5%;
+}
+
+.moduleTitle {
+	margin: auto;
+	width: 75%;
+	text-align: center;
+	font-size: 3em;
 }

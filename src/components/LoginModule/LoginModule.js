@@ -62,7 +62,7 @@ export default class LoginModule extends Component {
 								 className="usernameText loginInput"
 								 placeholder="user name"
 								 value={ userName }
-								 onChange = { e => this.handleChange(e) }
+								 onChange={ e => this.handleChange(e) }
 					/>
 
 					<input id="email"
