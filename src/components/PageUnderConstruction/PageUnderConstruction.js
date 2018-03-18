@@ -12,7 +12,7 @@ export default class PageUnderConstruction extends Component {
 
 
 	render() {
-		const gitHubUpdate = this.props.ghub || "GitHub not yet connected";
+		const gitHubUpdate = this.props.ghub || "GitHub not yet connected, bruh.";
 		const btnImage = this.props.btnImage || "X";
 		const { closeModule } = this.props;
 		const popUpClass = this.props.popUpBool ? "pucContainer" : "pucContainer popUpInactive";
