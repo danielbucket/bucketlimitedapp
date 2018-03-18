@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './css/LoginModuleRoot.css';
+import './css/LoginModule.css';
+import './css/mediaQuerymax825px.css';
+import './css/mediaQuerymax450px.css';
 
 export default class LoginModule extends Component {
 	constructor() {
@@ -60,7 +62,7 @@ export default class LoginModule extends Component {
 								 className="usernameText loginInput"
 								 placeholder="user name"
 								 value={ userName }
-								 onChange = { e => this.handleChange(e) }
+								 onChange={ e => this.handleChange(e) }
 					/>
 
 					<input id="email"
