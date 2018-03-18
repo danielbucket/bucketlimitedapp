@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import PageUnderConstruction from './PageUnderConstruction/PageUnderConstruction';
 import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
@@ -10,10 +12,13 @@ export default class App extends Component {
   	const { businessLogo } = this.props;
 
     return (
-      <div className="App_container">
-        <Header businessLogo={ businessLogo }/>
-        <Main />
-        <Footer />
+      <div>
+        <PageUnderConstruction />
+        <div className="App_container">
+          <Header businessLogo={ businessLogo } />
+          <Main />
+          <Footer />
+        </div>
       </div>
     )
   }

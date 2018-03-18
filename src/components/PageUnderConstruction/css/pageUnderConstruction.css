@@ -1,0 +1,9 @@
+.puc {
+	width: 90%;
+	height: 90%;
+	border: 5px solid red;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
