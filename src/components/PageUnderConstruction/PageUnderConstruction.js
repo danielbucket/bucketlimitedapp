@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
+import { fetchGitHub } from './fetchGitHub';
+import gitHubCommitMessage from './gitHubCommitMessage';
 import './css/pageUnderConstruction.css';
 
 
 export default class PageUnderConstruction extends Component {
 	constructor() {
 		super()
-		this.state = {};
+		this.state = { messages:[] }
+
+		this.fetchGitHub = fetchGitHub.bind(this)
+	}
+
+	componentWillMount() {
+
+		this.setState({ messages:this.fetchGitHub() })
+		console.log("this.state: ", this.state )
 	}
 
 
@@ -19,18 +29,25 @@ export default class PageUnderConstruction extends Component {
 
 		return (
 			<div className={ popUpClass }>
-				<div className="pucInnerBoxShadow">
-					<div className="moduleTitle">
-						<button className="closeModuleBtn"
-										onClick={ () => closeModule() }>
-							{ btnImage }
-						</button>
-						Page Under Construction, man! Cant you tell?
+
+					<button className="closeModuleBtn"
+									onClick={ () => closeModule() }>
+						{ btnImage }
+					</button>
+
+					<div className="statementBox">
+						<p>Page Under Construction</p>
+						<p>This is my personal webpage and is still very much in the works.</p>
+						<p>Please forgive the mess</p>
 					</div>
-					<div className="gitHubUpdate">
-						{ gitHubUpdate }
+
+					<div className="gitPushLogsContainer">
+						<h5>Eventual GitHub Widget</h5>
+						<div className="gitPushLogs">
+							{ gitHubUpdate }
+						</div>
 					</div>
-				</div>
+
 			</div>
 		)
 	}
