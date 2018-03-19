@@ -16,7 +16,10 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-		const gitHubFetch = fetchGitHub();
+
+		const gitHubFetch = this.fetchGitHub();
+			// fetchGitHub() returns a pending promise. How to I get it to resolve?
+
 		console.log('gitHubFetch: ', gitHubFetch)
 
 		// Michael: the above function is that which is not returning
@@ -42,8 +45,6 @@ export default class PageUnderConstruction extends Component {
 		// }
 		// this.setState({ message:gitHubUpdate })
 	}
-
-
 
 
 
