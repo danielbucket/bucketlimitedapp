@@ -1,31 +1,48 @@
 import React, { Component } from 'react';
 import { fetchGitHub } from './fetchGitHub';
-import gitHubCommitMessage from './gitHubCommitMessage';
+import GitHubCommitMessage from './GitHubCommitMessage';
 import './css/pageUnderConstruction.css';
 
 
 export default class PageUnderConstruction extends Component {
 	constructor() {
 		super()
-		this.state = { messages:[] }
+		this.state = {
+			messages:[]
+		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
+		this.GitHubCommitMessage = GitHubCommitMessage.bind(this)
 	}
 
 	componentWillMount() {
+		console.log( fetchGitHub() )
 
-		this.setState({ messages:this.fetchGitHub() })
-		console.log("this.state: ", this.state )
+		let gitHubUpdate = [];
+
+		if (this.state.messages.length > 1) {
+			gitHubUpdate = this.state.messages
+		} else {
+			gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub not yet connected, bruh." }]
+		}
+
+
+		// this.setState({ message:gitHubUpdate })
+		// console.log("this.state: ", this.state )
 	}
+
 
 
 
 
 	render() {
-		const gitHubUpdate = this.props.ghub || "GitHub not yet connected, bruh.";
 		const btnImage = this.props.btnImage || "X";
 		const { closeModule } = this.props;
 		const popUpClass = this.props.popUpBool ? "pucContainer" : "pucContainer popUpInactive";
+		const messagesArr = this.state.messages;
+		// console.log(messagesArr)
+
+
 
 		return (
 			<div className={ popUpClass }>
@@ -44,7 +61,7 @@ export default class PageUnderConstruction extends Component {
 					<div className="gitPushLogsContainer">
 						<h5>Eventual GitHub Widget</h5>
 						<div className="gitPushLogs">
-							{ gitHubUpdate }
+							<GitHubCommitMessage messagesArr={ messagesArr }/>
 						</div>
 					</div>
 

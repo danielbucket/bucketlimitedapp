@@ -1,17 +1,26 @@
 import React from 'react';
 
-const gitHubCommitMessage = log => {
+const GitHubCommitMessage = ({ messagesArr }) => {
+	// console.log(messagesArr)
+	const cardData = messagesArr.map(i => {
+
+		return (
+			<div>
+				<div>
+					{ i.timeStamp }
+				</div>
+				<div>
+					{ i.message }
+				</div>
+			</div>
+		)
+	})
 
 	return (
 		<div>
-			<div>
-				{ log.timeStamp }
-			</div>
-			<div>
-				{  }
-			</div>
+			{ cardData }
 		</div>
 	)
 };
 
-export default gitHubCommitMessage;
+export default GitHubCommitMessage;
