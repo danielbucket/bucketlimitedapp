@@ -16,19 +16,31 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-		console.log( fetchGitHub() )
+		const gitHubFetch = fetchGitHub();
+		console.log('gitHubFetch: ', gitHubFetch)
 
-		let gitHubUpdate = [];
+		// Michael: the above function is that which is not returning
+		// a value. It must be in function itself but I cant see it.
+		// Look at fetchGitHub.js for details as to whats happening. 
+		// It might have something to do with the function being bound
+		// to this class (as seen on line 15)
+		// Don't mind the commented out code below. It's not relevant
+		// untill fetchGitHub() returns a value.
 
-		if (this.state.messages.length > 1) {
-			gitHubUpdate = this.state.messages
-		} else {
-			gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub not yet connected, bruh." }]
-		}
 
 
+
+
+
+
+
+		// let gitHubUpdate = [];
+		// if (this.state.messages.length > 1) {
+			// gitHubUpdate = this.state.messages
+		// } else {
+			// gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub not yet connected, bruh." }]
+		// }
 		// this.setState({ message:gitHubUpdate })
-		// console.log("this.state: ", this.state )
 	}
 
 
