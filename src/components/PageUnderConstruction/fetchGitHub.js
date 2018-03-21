@@ -1,5 +1,5 @@
-export const fetchGitHub = () => {
-	return fetch("https://api.github.com/repos/danielbucket/bucketlimitedapp/commits")
+export const fetchGitHub = (profile, repo) => {
+	return fetch(`https://api.github.com/repos/${profile}/${repo}/commits`)
 		.then(res => res.json())
 		.then(data => {
 			return data.map(log => {

@@ -8,7 +8,12 @@ export default class PageUnderConstruction extends Component {
 	constructor() {
 		super()
 		this.state = {
-			messages:[]
+			messages:[],
+			gitHubProfile: "danielbucket",
+			gitHubRepo: "bucketlimitedapp"
+			// gitHubProile and gitHubRepo will be passed in as props
+			// in future iterations of this app thus keeping
+			// PageUnderConstructuction.js modular
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
@@ -16,7 +21,9 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-		const gitHubFetch = this.fetchGitHub();
+		let profile = this.state.gitHubProfile
+		let repo = this.state.gitHubRepo
+		const gitHubFetch = this.fetchGitHub(profile, repo);
 
 		console.log('gitHubFetch: ', gitHubFetch)
 
