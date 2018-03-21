@@ -12,15 +12,15 @@ export default class App extends Component {
     super();
     this.state = {
       popUpBool: true
-    };
+    }
 
-    this.closeModule = this.closeModule.bind(this);
-  }
+    this.closeModule = this.closeModule.bind(this)
+  };
 
   closeModule() {
     const newPopUpBool = this.state.popUpBool;
 
-    if(!newPopUpBool) {
+    if (!newPopUpBool) {
       this.setState({ popUpBool:true })
     } else {
       this.setState({ popUpBool:false })

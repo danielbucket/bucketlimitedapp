@@ -23,7 +23,7 @@
 }
 
 .business_name {
-	font-family: 'Monoton', cursive;
+	font-family: 'Roboto', sans-serif;
 	font-size: 5em;
 	margin-bottom: .25em;
 	color: var(--bucket-brown);
