@@ -16,9 +16,7 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-
 		const gitHubFetch = this.fetchGitHub();
-			// fetchGitHub() returns a pending promise. How to I get it to resolve?
 
 		console.log('gitHubFetch: ', gitHubFetch)
 

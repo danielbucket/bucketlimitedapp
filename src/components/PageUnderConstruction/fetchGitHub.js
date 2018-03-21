@@ -1,18 +1,17 @@
 export const fetchGitHub = () => {
 	return fetch("https://api.github.com/repos/danielbucket/bucketlimitedapp/commits")
-		.then(resp => resp.json())
+		.then(res => res.json())
 		.then(data => {
 			return data.map(log => {
-				const curLog = log.commit;
-				const timeStamp = curLog.author.date;
+				const currentLog = log.commit
+				const timeStamp = currentLog.author.date
 
 				return Object.assign(
 					{},
-					{ timeStamp:timeStamp, message:curLog.message }
+					{ timeStamp:timeStamp, message:currentLog.message }
 				)
 			})
 		})
 		.catch(error => console.log(error))
-
 };
 
