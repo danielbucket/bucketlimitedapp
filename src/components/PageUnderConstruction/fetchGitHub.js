@@ -1,5 +1,5 @@
-export const fetchGitHub = (profile, repo) => {
-	return fetch(`https://api.github.com/repos/${profile}/${repo}/commits`)
+export const fetchGitHub = (profile, repo, stateSet) => {
+	const repoCommits = fetch(`https://api.github.com/repos/${profile}/${repo}/commits`)
 		.then(res => res.json())
 		.then(data => {
 			return data.map(log => {
@@ -12,6 +12,7 @@ export const fetchGitHub = (profile, repo) => {
 				)
 			})
 		})
+		.then(mes => stateSet(mes))
 		.catch(error => console.log(error))
 };
 

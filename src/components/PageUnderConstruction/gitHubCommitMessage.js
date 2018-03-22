@@ -1,15 +1,17 @@
 import React from 'react';
 
 const GitHubCommitMessage = ({ messagesArr }) => {
-	// console.log(messagesArr)
-	const cardData = messagesArr.map(i => {
+	const cardData = messagesArr.map((i, curVal) => {
+		let commitNum = (messagesArr.length - curVal)
 
 		return (
-			<div>
-				<div>
+			<div className="commitCard"
+					 key={ i.timeStamp }>
+					 #{ commitNum }
+				<div className="commitTimeStamp">
 					{ i.timeStamp }
 				</div>
-				<div>
+				<div className="commitMessage">
 					{ i.message }
 				</div>
 			</div>
@@ -17,8 +19,11 @@ const GitHubCommitMessage = ({ messagesArr }) => {
 	})
 
 	return (
-		<div>
-			{ cardData }
+		<div  className="gitHubWidgetContainer">
+			<h5>GitHub Commits Widget</h5>
+			<div className="commitCardContainer">
+				{ cardData }
+			</div>
 		</div>
 	)
 };

@@ -1,0 +1,38 @@
+.gitHubWidgetContainer {
+	grid-row: 4;
+	margin: auto;
+
+	width: 70%;
+	height: 18em;
+	border: .1em solid black;
+	overflow: scroll;
+}
+
+.gitHubWidgetContainer h5 {
+	font-size: 1.5em;
+	text-align: center;
+	border-bottom: .1em solid black;
+	width: 70%;
+	margin: .75em auto 1.25em auto;
+	padding-bottom: .25em;
+}
+
+.commitCardContainer {
+}
+
+.commitCard {
+	font-size: 1em;
+	width: 70%;
+	margin: .5em auto;
+	background-color: #fff;
+	padding: .5em;
+	border-radius: .2em;
+}
+
+.gitHubWidgetContainer {
+
+}
+
+.commitMessage {
+
+}

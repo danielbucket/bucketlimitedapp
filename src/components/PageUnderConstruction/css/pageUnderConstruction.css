@@ -40,10 +40,3 @@
 }
 
 
-.gitPushLogsContainer {
-	grid-row: 4;
-	margin: auto;
-
-	font-size: 2em;
-	border: .1em solid black;
-}

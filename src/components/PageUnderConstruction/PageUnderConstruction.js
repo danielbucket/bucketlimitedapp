@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchGitHub } from './fetchGitHub';
 import GitHubCommitMessage from './GitHubCommitMessage';
+import './css/gitHubWidget.css';
 import './css/pageUnderConstruction.css';
 
 
@@ -17,23 +18,14 @@ export default class PageUnderConstruction extends Component {
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
+		this.stateSet = this.stateSet.bind(this)
 		this.GitHubCommitMessage = GitHubCommitMessage.bind(this)
 	}
 
 	componentWillMount() {
 		let profile = this.state.gitHubProfile
 		let repo = this.state.gitHubRepo
-		const gitHubFetch = this.fetchGitHub(profile, repo);
-
-		console.log('gitHubFetch: ', gitHubFetch)
-
-		// Michael: the above function is that which is not returning
-		// a value. It must be in function itself but I cant see it.
-		// Look at fetchGitHub.js for details as to whats happening. 
-		// It might have something to do with the function being bound
-		// to this class (as seen on line 15)
-		// Don't mind the commented out code below. It's not relevant
-		// untill fetchGitHub() returns a value.
+		const gitHubFetch = this.fetchGitHub(profile, repo, this.stateSet);
 
 
 
@@ -42,13 +34,17 @@ export default class PageUnderConstruction extends Component {
 
 
 
-		// let gitHubUpdate = [];
-		// if (this.state.messages.length > 1) {
-			// gitHubUpdate = this.state.messages
-		// } else {
-			// gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub not yet connected, bruh." }]
-		// }
-		// this.setState({ message:gitHubUpdate })
+		let gitHubUpdate = [];
+		if (this.state.messages.length > 1) {
+			gitHubUpdate = this.state.messages
+		} else {
+			gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub doesn/'t seem to be connected, bruh." }]
+		}
+		this.setState({ message:gitHubUpdate })
+	}
+
+	stateSet(mes) {
+		this.setState({ messages:mes })
 	}
 
 
@@ -76,12 +72,7 @@ export default class PageUnderConstruction extends Component {
 						<p>Please forgive the mess</p>
 					</div>
 
-					<div className="gitPushLogsContainer">
-						<h5>Eventual GitHub Widget</h5>
-						<div className="gitPushLogs">
-							<GitHubCommitMessage messagesArr={ messagesArr }/>
-						</div>
-					</div>
+					<GitHubCommitMessage messagesArr={ messagesArr }/>
 
 			</div>
 		)
