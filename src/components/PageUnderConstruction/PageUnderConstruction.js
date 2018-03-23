@@ -72,7 +72,8 @@ export default class PageUnderConstruction extends Component {
 						<p>Please forgive the mess</p>
 					</div>
 
-					<GitHubCommitMessage messagesArr={ messagesArr }/>
+					<GitHubCommitMessage messagesArr={ messagesArr }
+															 gitHubProfile={ this.state.gitHubProfile }/>
 
 			</div>
 		)

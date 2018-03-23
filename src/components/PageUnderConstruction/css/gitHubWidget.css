@@ -9,11 +9,14 @@
 }
 
 .gitHubWidgetContainer h5 {
+	position: sticky;
+		top: .75em;
+	background-color: gold;
 	font-size: 1.5em;
 	text-align: center;
 	border-bottom: .1em solid black;
 	width: 70%;
-	margin: .75em auto 1.25em auto;
+	margin: 0 auto 1.25em auto;
 	padding-bottom: .25em;
 }
 
