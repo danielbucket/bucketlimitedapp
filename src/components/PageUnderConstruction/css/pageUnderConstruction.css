@@ -26,7 +26,7 @@
 	background-color: #ffd600e0;
 
 	display: grid;
-	grid-template-rows: repeat(5, 1fr);
+	grid-template-rows: repeat(10, 1fr);
 }
 
 .popUpInactive {

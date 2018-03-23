@@ -2,40 +2,83 @@
 	grid-row: 3 / 4;
 	margin: auto;
 
+	display: grid;
+	grid-template-rows: 1fr 4fr;
+
 	width: 70%;
 	height: 18em;
+	background-color: gold;
 	border: .1em solid black;
-	overflow: scroll;
 }
 
-.gitHubWidgetContainer h5 {
-	position: sticky;
-		top: .75em;
-	background-color: gold;
+.widgetTitle {
+	grid-row: 1;
+	
 	font-size: 1.5em;
-	text-align: center;
 	border-bottom: .1em solid black;
-	width: 70%;
+	height: 100%;
+	width: 95%;
 	margin: 0 auto 1.25em auto;
 	padding-bottom: .25em;
 }
 
 .commitCardContainer {
+	grid-row: 2 / 4;
+
+	height: 100%;
+	overflow: scroll;
 }
 
 .commitCard {
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+
 	font-size: 1em;
-	width: 70%;
+	width: 100%;
 	margin: .5em auto;
-	background-color: #fff;
 	padding: .5em;
 	border-radius: .2em;
 }
 
-.gitHubWidgetContainer {
+.commitNum {
+	border-right: 1px solid black;
+}
+
+.commitDetails {
+	font-size: 1.2em;
+
+	margin: 0 .25em .1em .75em;
+}
+
+.commitTimeStamp {
+	height: 1.5em;
 
 }
 
 .commitMessage {
 
+}
+
+.gitHubReopLink {
+	grid-row: 5 / 6;
+
+	width: 20em;
+	font-size: 1.5em;
+	text-align: center;
+	margin: auto;
+}
+
+.cryptoCoinAddressContainer {
+	grid-row: 6 / 7;
+
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	width: 40em;
+	margin: 2em auto;
+} 
+
+.cryptoCoinAddress {
+
+	font-size: 1em;
+	text-align: center;
 }
