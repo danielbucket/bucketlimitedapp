@@ -30,10 +30,6 @@ export default class PageUnderConstruction extends Component {
 
 
 
-
-
-
-
 		let gitHubUpdate = [];
 		if (this.state.messages.length > 1) {
 			gitHubUpdate = this.state.messages
@@ -52,29 +48,24 @@ export default class PageUnderConstruction extends Component {
 	render() {
 		const btnImage = this.props.btnImage || "X";
 		const { closeModule } = this.props;
-		const popUpClass = this.props.popUpBool ? "pucContainer" : "pucContainer popUpInactive";
+		const popUpBarrier = this.props.popUpBool ? "popUpBarrier" : "popUpBarrier popUpInactive";
 		const messagesArr = this.state.messages;
-		// console.log(messagesArr)
-
-
 
 		return (
-			<div className={ popUpClass }>
-
-					<button className="closeModuleBtn"
-									onClick={ () => closeModule() }>
-						{ btnImage }
-					</button>
-
-					<div className="statementBox">
-						<p>Page Under Construction</p>
-						<p>This is my personal webpage and is still very much in the works.</p>
-						<p>Please forgive the mess</p>
-					</div>
-
-					<GitHubCommitMessage messagesArr={ messagesArr }
-															 gitHubProfile={ this.state.gitHubProfile }/>
-
+			<div className={ popUpBarrier }>
+				<div className="pucContainer">
+						<button className="closeModuleBtn"
+										onClick={ () => closeModule() }>
+							{ btnImage }
+						</button>
+						<div className="statementBox">
+							<p>Page Under Construction</p>
+							<p>This is my personal webpage and is still very much in the works.</p>
+							<p>Please forgive the mess</p>
+						</div>
+						<GitHubCommitMessage messagesArr={ messagesArr }
+																 gitHubProfile={ this.state.gitHubProfile }/>
+				</div>
 			</div>
 		)
 	}

@@ -1,5 +1,5 @@
 .gitHubWidgetContainer {
-	grid-row: 4;
+	grid-row: 3 / 4;
 	margin: auto;
 
 	width: 70%;
