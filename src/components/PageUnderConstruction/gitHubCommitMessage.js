@@ -13,7 +13,7 @@ const GitHubCommitMessage = ({ messagesArr, error }) => {
 				<div className="verticleTextAlignWrapper">
 					<p className="commitNum">
 						#{ commitNum }
-					</p>
+					</p>22
 				</div>
 
 				<div className="commitDetails">
