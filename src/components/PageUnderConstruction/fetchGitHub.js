@@ -1,6 +1,7 @@
 export const fetchGitHub = (profile, repo, stateSet) => {
-	const repoCommits = fetch(`https://api.github.com/repos/${profile}/${repo}/commits`)
+	fetch(`https://api.github.com/repos/${profile}/${repo}/commits`)
 		.then(res => res.json())
+		.then(goober => goober.json())
 		.then(data => {
 			return data.map(log => {
 				const currentLog = log.commit
@@ -8,11 +9,14 @@ export const fetchGitHub = (profile, repo, stateSet) => {
 
 				return Object.assign(
 					{},
-					{ timeStamp:timeStamp, message:currentLog.message }
+					{
+						timeStamp:timeStamp,
+						message:currentLog.message
+					}
 				)
 			})
 		})
-		.then(mes => stateSet(mes))
-		.catch(error => console.log(error))
+		.then(mes => stateSet("messages", mes))
+		.catch(error => stateSet("error", error))
 };
 

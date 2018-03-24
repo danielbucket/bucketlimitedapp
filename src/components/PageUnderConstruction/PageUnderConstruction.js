@@ -10,6 +10,7 @@ export default class PageUnderConstruction extends Component {
 		super()
 		this.state = {
 			messages:[],
+			error: "",
 			gitHubProfile: "danielbucket",
 			projectRepo: "bucketlimitedapp",
 			BTC_Address: "1DyXVZpmGRVPvNvsmWYimHeGzKEqxNaZT",
@@ -32,8 +33,8 @@ export default class PageUnderConstruction extends Component {
 		this.fetchGitHub(profile, repo, this.stateSet);
 	}
 
-	stateSet(mes) {
-		this.setState({ messages:mes })
+	stateSet(key,val) {
+		this.setState({ [key]:val })
 	}
 
 	openNewBrowserTab() {
@@ -60,8 +61,9 @@ export default class PageUnderConstruction extends Component {
 							<p>This is my personal webpage and is still very much in the works.</p>
 							<p>Please forgive the mess.</p>
 						</div>
+
 						<GitHubCommitMessage messagesArr={ messagesArr }
-																 gitHubProfile={ this.state.gitHubProfile }/>
+																 error={ this.state.error }/>
 						<button className="gitHubReopLink"
 										onClick={ () => this.openNewBrowserTab() }>
 							Check out my GitHub repository
