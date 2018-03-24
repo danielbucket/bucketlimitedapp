@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 
 const GitHubCommitMessage = ({ messagesArr }) => {
 	const cardData = messagesArr.map((i, curVal) => {
@@ -15,7 +16,7 @@ const GitHubCommitMessage = ({ messagesArr }) => {
 
 				<div className="commitDetails">
 					<div className="commitTimeStamp">
-						{ i.timeStamp }
+						<Moment>{ i.timeStamp }</Moment>
 					</div>
 					<div className="commitMessage">
 						{ i.message }

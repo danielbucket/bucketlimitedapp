@@ -15,7 +15,7 @@ export default class PageUnderConstruction extends Component {
 			BTC_Address: "1DyXVZpmGRVPvNvsmWYimHeGzKEqxNaZT",
 			ETH_Address: "0xc097Bbb6CF49d70DAD90149Fc4d932Fc730F1080"
 			// gitHubProile and projectRepo will be passed in as props
-			// in future iterations of this app thus keeping
+			// in future iterations of this app in keeping
 			// PageUnderConstructuction.js modular
 		}
 
@@ -26,26 +26,15 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-		let profile = this.state.gitHubProfile
-		let repo = this.state.projectRepo
-		const gitHubFetch = this.fetchGitHub(profile, repo, this.stateSet);
+		const profile = this.state.gitHubProfile
+		const repo = this.state.projectRepo
 
-
-
-
-		let gitHubUpdate = [];
-		if (this.state.messages.length > 1) {
-			gitHubUpdate = this.state.messages
-		} else {
-			gitHubUpdate = [{ timeStamp:Date.now(),  message:"GitHub doesn/'t seem to be connected, bruh." }]
-		}
-		this.setState({ message:gitHubUpdate })
+		this.fetchGitHub(profile, repo, this.stateSet);
 	}
 
 	stateSet(mes) {
 		this.setState({ messages:mes })
 	}
-
 
 	openNewBrowserTab() {
 		window.open(`https://github.com/${this.state.gitHubProfile}/${this.state.projectRepo}`)
@@ -75,7 +64,7 @@ export default class PageUnderConstruction extends Component {
 																 gitHubProfile={ this.state.gitHubProfile }/>
 						<button className="gitHubReopLink"
 										onClick={ () => this.openNewBrowserTab() }>
-							Check out my GitHub repository.
+							Check out my GitHub repository
 						</button>
 
 						<div className="cryptoCoinAddressContainer">
