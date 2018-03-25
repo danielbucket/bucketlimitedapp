@@ -16,8 +16,7 @@ const userCreds = {
 
 render(
 	<MemoryRouter initialIndex={ 1 }>
-		<App userCreds={ userCreds }
-				  />
+		<App userCreds={ userCreds } />
 	</MemoryRouter>
 	,
 	document.getElementById('root'));

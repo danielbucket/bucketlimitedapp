@@ -84,3 +84,9 @@
 	font-size: 1em;
 	text-align: center;
 }
+
+.isLoading {
+	grid-row: 4 / 5;
+	width: 20em;
+	margin: auto;
+}

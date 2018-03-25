@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchGitHub } from './fetchGitHub';
-import GitHubCommitMessage from './GitHubCommitMessage';
+import GitHubWidget from './GitHubWidget';
 import './css/gitHubWidget.css';
 import './css/pageUnderConstruction.css';
 
@@ -8,29 +8,14 @@ import './css/pageUnderConstruction.css';
 export default class PageUnderConstruction extends Component {
 	constructor() {
 		super()
-		this.state = {
-			messages:[],
-			error: ""
-		}
-
-		this.fetchGitHub = fetchGitHub.bind(this)
-		this.stateSet = this.stateSet.bind(this)
-		this.GitHubCommitMessage = GitHubCommitMessage.bind(this)
+		this.state={}
+		
 		this.openNewBrowserTab = this.openNewBrowserTab.bind(this)
-	}
-
-	componentWillMount() {
-		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
-
-		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet);
-	}
-
-	stateSet(key,val) {
-		this.setState({ [key]:val })
 	}
 
 	openNewBrowserTab() {
 		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
+
 		window.open(`https://github.com/${gitHubProfile}/${gitHubRepo}`)
 	}
 
@@ -40,7 +25,7 @@ export default class PageUnderConstruction extends Component {
 		const { closeModule } = this.props;
 		const popUpBarrier = this.props.popUpBool ? "popUpBarrier" : "popUpBarrier popUpInactive";
 		const { gitHubProfile, gitHubRepo, BTC_address, ETH_address } = this.props.userCreds;
-		const messagesArr = this.state.messages
+		const userCreds = this.props.userCreds;
 
 		return (
 			<div className={ popUpBarrier }>
@@ -55,8 +40,7 @@ export default class PageUnderConstruction extends Component {
 							<p>Please forgive the mess.</p>
 						</div>
 
-						<GitHubCommitMessage messagesArr={ messagesArr }
-																 error={ this.state.error }/>
+						<GitHubWidget userCreds={ userCreds }/>
 						<button className="gitHubReopLink"
 										onClick={ () => this.openNewBrowserTab() }>
 							Check out my GitHub repository
