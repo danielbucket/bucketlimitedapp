@@ -2,7 +2,6 @@ import React from 'react';
 import Moment from 'react-moment';
 
 const GitHubCommitMessage = ({ messagesArr, error }) => {
-	console.log(error.message)
 
 	const cardData = messagesArr.map((i, curVal) => {
 		let commitNum = (messagesArr.length - curVal)

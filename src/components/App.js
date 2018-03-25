@@ -28,14 +28,18 @@ export default class App extends Component {
   }
 
   render() {
-  	const { businessLogo } = this.props;
+
     const { popUpBool } = this.state;
+    const { businessLogo } = this.props.userCreds;
+    const { userCreds } = this.props;
+
 
     return (
       <div>
         <div className="App_container">
         <PageUnderConstruction popUpBool={ popUpBool }
-                               closeModule={ this.closeModule }/>
+                               closeModule={ this.closeModule }
+                               userCreds={ userCreds }/>
           <Header businessLogo={ businessLogo } />
           <Main />
           <Footer />

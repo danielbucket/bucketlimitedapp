@@ -10,14 +10,7 @@ export default class PageUnderConstruction extends Component {
 		super()
 		this.state = {
 			messages:[],
-			error: "",
-			gitHubProfile: "danielbucket",
-			projectRepo: "bucketlimitedapp",
-			BTC_Address: "1DyXVZpmGRVPvNvsmWYimHeGzKEqxNaZT",
-			ETH_Address: "0xc097Bbb6CF49d70DAD90149Fc4d932Fc730F1080"
-			// gitHubProile and projectRepo will be passed in as props
-			// in future iterations of this app in keeping
-			// PageUnderConstructuction.js modular
+			error: ""
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
@@ -27,10 +20,9 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	componentWillMount() {
-		const profile = this.state.gitHubProfile
-		const repo = this.state.projectRepo
+		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
 
-		this.fetchGitHub(profile, repo, this.stateSet);
+		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet);
 	}
 
 	stateSet(key,val) {
@@ -38,7 +30,8 @@ export default class PageUnderConstruction extends Component {
 	}
 
 	openNewBrowserTab() {
-		window.open(`https://github.com/${this.state.gitHubProfile}/${this.state.projectRepo}`)
+		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
+		window.open(`https://github.com/${gitHubProfile}/${gitHubRepo}`)
 	}
 
 
@@ -46,7 +39,7 @@ export default class PageUnderConstruction extends Component {
 		const btnImage = this.props.btnImage || "X";
 		const { closeModule } = this.props;
 		const popUpBarrier = this.props.popUpBool ? "popUpBarrier" : "popUpBarrier popUpInactive";
-		const { BTC_Address, ETH_Address } = this.state;
+		const { gitHubProfile, gitHubRepo, BTC_address, ETH_address } = this.props.userCreds;
 		const messagesArr = this.state.messages
 
 		return (
@@ -71,10 +64,10 @@ export default class PageUnderConstruction extends Component {
 
 						<div className="cryptoCoinAddressContainer">
 							<div className="cryptoCoinAddress">
-								BTC: { BTC_Address }
+								BTC: { BTC_address }
 							</div>
 							<div className="cryptoCoinAddress">
-								ETH: { ETH_Address }
+								ETH: { ETH_address }
 							</div>
 						</div>
 				</div>
