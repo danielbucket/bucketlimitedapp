@@ -34,5 +34,6 @@ export default class HeaderComponent extends Component {
 };
 
 HeaderComponent.propTypes = {
+  businessLogo: PropTypes.string.isRequired,
   businessLogo: PropTypes.string
 }

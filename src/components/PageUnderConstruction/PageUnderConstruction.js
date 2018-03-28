@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { fetchGitHub } from './fetchGitHub';
 import GitHubWidget from './GitHubWidget';
 import './css/gitHubWidget.css';
@@ -58,4 +60,14 @@ export default class PageUnderConstruction extends Component {
 			</div>
 		)
 	}
+}
+
+PageUnderConstruction.propsTypes = {
+	btnImage: PropTypes.string,
+	closeModule: PropTypes.isRequired,
+	closeModule: PropTypes.Object,
+	popUpBool: PropTypes.isRequired,
+	popUpBool: PropTypes.bool,
+	userCreds: PropTypes.isRequired,
+	userCreds: PropTypes.object
 }

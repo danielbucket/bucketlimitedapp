@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Moment from 'react-moment';
 
 import { fetchGitHub } from './fetchGitHub';
@@ -16,8 +18,6 @@ export default class GitHubWidget extends Component {
 
 	}
 
-	// <Moment>{ i.timeStamp }</Moment>
-
 	componentWillMount() {
 		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
 
@@ -25,16 +25,13 @@ export default class GitHubWidget extends Component {
 	}
 
 	stateSet(key,val) {
+
 		this.setState({ [key]:val })
 	}
-
 
 	render() {
 		const messagesArr = this.state.messages;
 		const isLoading = <div className="commitCard isLoading">Loading...</div>
-
-			console.log('0 tits: ', this.state.messages.length)
-
 
 		const cardData = messagesArr.map((i, curVal) => {
 			const commitNum = (messagesArr.length - curVal);
@@ -60,19 +57,20 @@ export default class GitHubWidget extends Component {
 			)
 		})
 
-
 		return (
 			<div className="gitHubWidgetContainer">
 				<div className="verticleTextAlignWrapper widgetTitle">
 					<p>GitHub Commits Widget</p>
 				</div>
-
 				<div className="commitCardContainer">
-
 					{ messagesArr.length > 0 ? cardData : isLoading }
-
 				</div>
 			</div>
 		)
 	}
+};
+
+GitHubWidget.propTypes = {
+	userCreds:ProcessingInstruction.isRequired,
+	userCreds: PropTypes.object
 }
