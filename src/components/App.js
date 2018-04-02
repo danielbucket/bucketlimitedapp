@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import PageUnderConstruction from './PageUnderConstruction/PageUnderConstruction';
 import Header from './Header/Header';
@@ -15,6 +16,7 @@ export default class App extends Component {
     }
 
     this.closeModule = this.closeModule.bind(this)
+    this.pgcComponent = this.pgcComponent.bind(this)
   };
 
   closeModule() {
@@ -27,6 +29,12 @@ export default class App extends Component {
     }
   }
 
+  pgcComponent({ component: PageUnderConstruction, ...rest }) {
+
+
+
+  }
+
   render() {
 
     const { popUpBool } = this.state;
@@ -36,10 +44,14 @@ export default class App extends Component {
 
     return (
       <div>
+        <Router>
+          <Route exact path="/puc"  render={
+            () => <PageUnderConstruction popUpBool={ popUpBool }
+                                         closeModule={ this.closeModule }
+                                         userCreds={ userCreds } />
+                              } />
+        </Router>
         <div className="App_container">
-        <PageUnderConstruction popUpBool={ popUpBool }
-                               closeModule={ this.closeModule }
-                               userCreds={ userCreds }/>
           <Header businessLogo={ businessLogo } />
           <Main />
           <Footer />

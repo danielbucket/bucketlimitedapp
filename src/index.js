@@ -15,7 +15,8 @@ const userCreds = {
 };
 
 render(
-	<MemoryRouter initialIndex={ 1 }>
+	<MemoryRouter initialEntries={['/home', '/puc']}
+								intitialIndex={ 1 }>
 		<App userCreds={ userCreds } />
 	</MemoryRouter>
 	,
