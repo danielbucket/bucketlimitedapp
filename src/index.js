@@ -4,6 +4,9 @@ import { render } from 'react-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { MemoryRouter } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import PageUnderConstruction from './components/PageUnderConstruction/PageUnderConstruction';
 import './index.css';
 
 const userCreds = {
@@ -15,10 +18,11 @@ const userCreds = {
 };
 
 render(
-	<MemoryRouter initialEntries={['/home', '/puc']}
-								intitialIndex={ 1 }>
-		<App userCreds={ userCreds } />
-	</MemoryRouter>
+	<Router>
+		<Route path="/" render={
+					() => <App userCreds={ userCreds } />
+				} />
+	</Router>
 	,
 	document.getElementById('root'));
 	registerServiceWorker();

@@ -42,7 +42,7 @@ export default class GitHubWidget extends Component {
 					<div className="verticleTextAlignWrapper">
 						<p className="commitNum">
 							#{ commitNum }
-						</p>22
+						</p>
 					</div>
 
 					<div className="commitDetails">
