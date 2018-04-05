@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { MemoryRouter } from 'react-router';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import PageUnderConstruction from './components/PageUnderConstruction/PageUnderConstruction';
 import './index.css';
 
 const userCreds = {

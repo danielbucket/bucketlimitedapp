@@ -71,6 +71,5 @@ export default class GitHubWidget extends Component {
 };
 
 GitHubWidget.propTypes = {
-	userCreds:ProcessingInstruction.isRequired,
 	userCreds: PropTypes.object
 }

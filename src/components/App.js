@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {  BrowserRouter as Router,
-          Route,
-          Switch,
-          Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import PageUnderConstruction from './PageUnderConstruction/PageUnderConstruction';
 import Header from './Header/Header';
