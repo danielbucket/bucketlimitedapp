@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import Moment from 'react-moment';
-
 import { fetchGitHub } from './fetchGitHub';
+import { commitCard } from './commitCard';
 
 export default class GitHubWidget extends Component {
 	constructor() {
@@ -15,7 +14,6 @@ export default class GitHubWidget extends Component {
 
 		this.fetchGitHub = fetchGitHub.bind(this)
 		this.stateSet = this.stateSet.bind(this)
-
 	}
 
 	componentWillMount() {
@@ -25,37 +23,13 @@ export default class GitHubWidget extends Component {
 	}
 
 	stateSet(key,val) {
-
 		this.setState({ [key]:val })
 	}
 
 	render() {
 		const messagesArr = this.state.messages;
-		const isLoading = <div className="commitCard isLoading">Loading...</div>
-
-		const cardData = messagesArr.map((i, curVal) => {
-			const commitNum = (messagesArr.length - curVal);
-
-			return (
-				<div className="commitCard"
-						 key={ i.timeStamp }>
-					<div className="verticleTextAlignWrapper">
-						<p className="commitNum">
-							#{ commitNum }
-						</p>
-					</div>
-
-					<div className="commitDetails">
-						<div className="commitTimeStamp">
-							<Moment>{ i.timeStamp }</Moment>
-						</div>
-						<div className="commitMessage">
-							{ i.message }
-						</div>
-					</div>
-				</div>
-			)
-		})
+		const isLoading = <div className="commitCard isLoading">Loading...</div>;
+		const cardData = messagesArr.map(curVal => commitCard(curVal))
 
 		return (
 			<div className="gitHubWidgetContainer">
