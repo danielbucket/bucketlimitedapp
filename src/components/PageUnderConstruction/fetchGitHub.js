@@ -1,4 +1,4 @@
-export const fetchGitHub = (profile, repo, stateSet) => {
+export const fetchGitHub = (profile,repo,stateSet) => {
 	fetch(`https://api.github.com/repos/${profile}/${repo}/branches`)
 	.then(resp => resp.json())
 	.then(branchesObj => {
@@ -21,10 +21,10 @@ export const fetchGitHub = (profile, repo, stateSet) => {
 						const bName = branchNamesArray[i].branchName;
 
 						if (!accu[bName]) {
-							accu[bName] = []
+							accu[bName] = [];
 						}
 
-						let newCommit = {}
+						const newCommit = {};
 						Object.assign(
 							newCommit,
 							{ branchName:bName },
@@ -32,7 +32,6 @@ export const fetchGitHub = (profile, repo, stateSet) => {
 							{	url:url },
 							{ date:date }
 						)
-
 						accu[bName].push(newCommit)
 
 						return accu
@@ -43,13 +42,13 @@ export const fetchGitHub = (profile, repo, stateSet) => {
 			return Promise.all(branchCommitArray)
 		})
 	})
-	.then(shartNado => {
-		// console.log(shartNado)
-
-		return shartNado
-	})
 	.then(commitCollection => stateSet('messages', commitCollection))
-	.catch(error => stateSet("error", error))
+	.catch(error => {
+		const err = { error };
+		const errMess = err.error.message;
+
+		return stateSet("error", errMess)
+	})
 };
 
 

@@ -9,7 +9,7 @@ export default class GitHubWidget extends Component {
 		super()
 		this.state = {
 			messages: [],
-			error: ""
+			error: null
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
@@ -22,19 +22,19 @@ export default class GitHubWidget extends Component {
 	}
 
 	stateSet(key,val) {
+		console.log(val)
 		this.setState({ [key]:val })
 	}
 
 	render() {
-		// const cardData = messagesArr.map(curVal => commitCard(curVal))
-		
-		
 		const messagesArr = this.state.messages;
+		const errorMessage = this.state.error;
 		const isLoading = <div className="commitCard isLoading">Loading...</div>;
 
 		let cardData;
-		if (messagesArr.length > 0) {
-			console.log('cardData: ', cardData)
+		if (errorMessage !== null) {
+			cardData = <div>{ errorMessage }</div>
+		} else if (messagesArr.length > 0) {
 			cardData = commitCard(messagesArr)
 		}
 
@@ -44,7 +44,7 @@ export default class GitHubWidget extends Component {
 					<p>GitHub Commits Widget</p>
 				</div>
 				<div className="commitCardContainer">
-					{ messagesArr.length > 0 ? cardData : isLoading }
+					{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
 				</div>
 			</div>
 		)
