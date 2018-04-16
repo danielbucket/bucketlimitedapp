@@ -1,38 +1,56 @@
-
 export const fetchGitHub = (profile, repo, stateSet) => {
-
-	return fetch(`https://api.github.com/repos/${profile}/${repo}/branches`)
-	.then(res => res.json())
+	fetch(`https://api.github.com/repos/${profile}/${repo}/branches`)
+	.then(resp => resp.json())
 	.then(branchesObj => {
-
-		const gitHubWidgetDataObject = branchesObj.map(inititalBranchObj => {
-			const branchName = inititalBranchObj.name;
-			const { sha } = inititalBranchObj.commit;
-
-			return fetch(`https://api.github.com/repos/${profile}/${repo}/commits?per_page=100&sha=${sha}`)
-			.then(res => res.json())
-			.then(grabName => grabName.map(commitObj => Object.assign(commitObj, { branchName:branchName }) ))
-
+		let branchNamesArray = branchesObj.map(branch => {
+			return {	branchName:branch.name,
+								sha:branch.commit.sha	}
 		})
-		return Promise.all(gitHubWidgetDataObject)
-			.then(commitsBlob => commitsBlob.map(i => {
-				return i.map(commitsObj => {
-					const { branchName, html_url } = commitsObj;
-					const { message } = commitsObj.commit;
-					const { date } = commitsObj.commit.committer;
+		return Promise.all(branchNamesArray)
+		.then(branches => {
+			const branchCommitArray = branches.map((branchObject,i) => {
+				const { branchName, sha } = branchObject;
 
-					return Object.assign(	{},
-																{ message:message },
-																{ url:html_url },
-																{ date:date },
-																{ branchName:branchName }
-					)
+				return fetch(`https://api.github.com/repos/${profile}/${repo}/commits?per_page=100&sha=${sha}`)
+				.then(res => res.json())
+				.then(branchArray => {
+					const newBranchCommits = branchArray.reduce((accu,branchCommit) => {
+						const { commit } = branchCommit;
+						const { message, url } = commit;
+						const date = commit.committer.date
+						const bName = branchNamesArray[i].branchName;
+
+						if (!accu[bName]) {
+							accu[bName] = []
+						}
+
+						let newCommit = {}
+						Object.assign(
+							newCommit,
+							{ branchName:bName },
+							{ message:message },
+							{	url:url },
+							{ date:date }
+						)
+
+						accu[bName].push(newCommit)
+
+						return accu
+					}, {})
+				return newBranchCommits
 				})
 			})
-		)
+			return Promise.all(branchCommitArray)
+		})
 	})
-	.then(mes => stateSet("messages", mes))
-	.catch(error => stateSet("error", error))
+	.then(shartNado => {
+		// console.log(shartNado)
 
+		return shartNado
+	})
+	.then(commitCollection => stateSet('messages', commitCollection))
+	.catch(error => stateSet("error", error))
 };
+
+
 

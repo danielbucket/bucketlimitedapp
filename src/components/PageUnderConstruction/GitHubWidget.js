@@ -7,7 +7,7 @@ import { commitCard } from './commitCard';
 export default class GitHubWidget extends Component {
 	constructor() {
 		super()
-		this.state={
+		this.state = {
 			messages: [],
 			error: ""
 		}
@@ -18,8 +18,7 @@ export default class GitHubWidget extends Component {
 
 	componentWillMount() {
 		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
-
-		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet);
+		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet)
 	}
 
 	stateSet(key,val) {
@@ -27,9 +26,17 @@ export default class GitHubWidget extends Component {
 	}
 
 	render() {
+		// const cardData = messagesArr.map(curVal => commitCard(curVal))
+		
+		
 		const messagesArr = this.state.messages;
 		const isLoading = <div className="commitCard isLoading">Loading...</div>;
-		const cardData = messagesArr.map(curVal => commitCard(curVal))
+
+		let cardData;
+		if (messagesArr.length > 0) {
+			console.log('cardData: ', cardData)
+			cardData = commitCard(messagesArr)
+		}
 
 		return (
 			<div className="gitHubWidgetContainer">
