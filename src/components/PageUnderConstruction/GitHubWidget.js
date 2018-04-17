@@ -22,7 +22,6 @@ export default class GitHubWidget extends Component {
 	}
 
 	stateSet(key,val) {
-		console.log(val)
 		this.setState({ [key]:val })
 	}
 
