@@ -9,6 +9,7 @@
 	height: 18em;
 	background-color: gold;
 	border: .1em solid black;
+	padding-bottom: .1em;
 }
 
 .widgetTitle {
@@ -22,14 +23,19 @@
 	padding-bottom: .25em;
 }
 
-.commitCardContainer {
+.commitsPresenterContainer {
 	grid-row: 2 / 4;
 
 	height: 100%;
 	overflow: scroll;
 }
 
-.commitCard {
+.commitsPrint {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.commitsPresenter {
 	display: grid;
 	grid-template-columns: 1fr 9fr;
 
@@ -56,7 +62,7 @@
 }
 
 .commitMessage {
-
+	border: 1px solid red;
 }
 
 .gitHubReopLink {
@@ -79,11 +85,7 @@
 	margin: 2em auto;
 } 
 
-.cryptoCoinAddress {
 
-	font-size: 1em;
-	text-align: center;
-}
 
 .isLoading {
 	grid-row: 4 / 5;

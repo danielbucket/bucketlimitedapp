@@ -9,14 +9,14 @@ export const fetchGitHub = (profile,repo,stateSet) => {
 		return Promise.all(branchNamesArray)
 		.then(branches => {
 			const branchCommitArray = branches.map((branchObject,i) => {
-				const { branchName, sha } = branchObject;
+				const { sha } = branchObject;
 
 				return fetch(`https://api.github.com/repos/${profile}/${repo}/commits?per_page=100&sha=${sha}`)
 				.then(res => res.json())
 				.then(branchArray => {
 					const newBranchCommits = branchArray.reduce((accu,branchCommit) => {
-						const { commit } = branchCommit;
-						const { message, url } = commit;
+						const { commit, html_url } = branchCommit;
+						const { message } = commit;
 						const date = commit.committer.date
 						const bName = branchNamesArray[i].branchName;
 
@@ -29,7 +29,7 @@ export const fetchGitHub = (profile,repo,stateSet) => {
 							newCommit,
 							{ branchName:bName },
 							{ message:message },
-							{	url:url },
+							{	url:html_url },
 							{ date:date }
 						)
 						accu[bName].push(newCommit)

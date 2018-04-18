@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {	BrowserRouter as Router,
+import 		React,
+				{	Component	} from 'react';
+import 		PropTypes from 'prop-types';
+import 	{	BrowserRouter as Router,
 					Route,
 					Link	} from 'react-router-dom';
-
-import { fetchGitHub } from './fetchGitHub';
-import GitHubWidget from './GitHubWidget';
+import 		GitHubWidget from './GitHubWidget';
 import './css/gitHubWidget.css';
 import './css/pageUnderConstruction.css';
 

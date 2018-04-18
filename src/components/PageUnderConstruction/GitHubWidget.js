@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
 import { fetchGitHub } from './fetchGitHub';
-import { commitCard } from './commitCard';
+import { commitsPresenter } from './commitsPresenter';
 
 export default class GitHubWidget extends Component {
 	constructor() {
 		super()
 		this.state = {
 			messages: [],
-			error: null
+			error: null,
+			activeStatus: true
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
@@ -28,13 +28,14 @@ export default class GitHubWidget extends Component {
 	render() {
 		const messagesArr = this.state.messages;
 		const errorMessage = this.state.error;
-		const isLoading = <div className="commitCard isLoading">Loading...</div>;
+		const activeStatus = this.state.activeStatus;
+		const isLoading = <div className="commitsPresenter isLoading">Loading...</div>;
 
 		let cardData;
 		if (errorMessage !== null) {
 			cardData = <div>{ errorMessage }</div>
 		} else if (messagesArr.length > 0) {
-			cardData = commitCard(messagesArr)
+			cardData = commitsPresenter(messagesArr,activeStatus,this.setState)
 		}
 
 		return (
@@ -42,7 +43,7 @@ export default class GitHubWidget extends Component {
 				<div className="verticleTextAlignWrapper widgetTitle">
 					<p>GitHub Commits Widget</p>
 				</div>
-				<div className="commitCardContainer">
+				<div className="commitsPresenterContainer">
 					{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
 				</div>
 			</div>
