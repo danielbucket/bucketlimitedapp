@@ -26,7 +26,8 @@ export const commitsPresenter = (messagesArray,activeStatus,setState) => {
 		});
 		
 		return (
-			<div className="commits_by_branch_container">
+			<div className="commits_by_branch_container"
+						key={ Date.now() }>
 				<div className="branch_name">
 					{ bNameString }
 				</div>
@@ -43,55 +44,3 @@ export const commitsPresenter = (messagesArray,activeStatus,setState) => {
 		</div>
 	)
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
