@@ -1,51 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import './css/commitsPresenter.css';
 
 export const commitsPresenter = (messagesArray,activeStatus,setState) => {
-	const viewStatus = activeStatus ? "active" : "inactive";
-	const branchNamesArray = messagesArray.map(bName => Object.keys(bName))
 
-	const commitsCardPrint = messagesArray.map(branchObj => {
-		const branch = Object.keys(branchObj);
+	const branchObj = messagesArray.map(branchObject => Object.keys(branchObject));
+	const messagesByBranchArray = messagesArray.map((branch,index) => branch[branchObj[index]]);
 
-		// generate cards
-		const branchCommitCards = branchObj[branch].map(i => {
+	const branchCommit_tabsWithCommitsList = messagesArray.map((bName,index) => {
+		const bNameString = Object.keys(bName).toString();
+		const commitsArray = messagesByBranchArray[index].map(commitCard => {
 			return (
-				<div className="branchCommitCards"
-							key={ i.date }
-							onClick={ () => window.open(i.url) }>
-					<Moment className="commitTimeStamp">
-						{ i.date }
+				<div className="commit_card"
+							key={ commitCard.date }
+							onClick={ () => window.open(commitCard.url) }>
+					<Moment className="commit_time_stamp">
+						{ commitCard.date }
 					</Moment>
 					<div className="commitMessage">
-						{ i.message }
+						{ commitCard.message }
 					</div>
 				</div>
 			)
-		})
-
-		// combine cards with corresponding branches
-		return branchNamesArray.map((tabName,index) => {
-			const cardListViewStatus = viewStatus + " commitsCardList";
-
-			return (
-				<div className={ cardListViewStatus }>
-					<div>
-						{ tabName }
-					</div>
-					<div>
-						{ branchCommitCards }
-					</div>
+		});
+		
+		return (
+			<div className="commits_by_branch_container">
+				<div className="branch_name">
+					{ bNameString }
 				</div>
-			)
-		})
-	})
-	
-	// commitsCardPrint is being printed 4 times
+				<div className="commits_by_branch_list">
+					{ commitsArray }
+				</div>
+			</div>
+		)
+	});
+
 	return (
-		<div>
-			{ commitsCardPrint }
+		<div className="branchCommit_tabsWithCommitsList">
+			{ branchCommit_tabsWithCommitsList }
 		</div>
 	)
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

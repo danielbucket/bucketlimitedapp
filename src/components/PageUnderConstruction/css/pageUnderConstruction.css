@@ -1,9 +1,9 @@
-.cryptoCoinAddress {
+.crypto_coin_address {
 	font-size: 1em;
 	text-align: center;
 }
 
-.popUpBarrier {
+.pop_up_barrier {
 	position: absolute;
 		top: 0;
 		left: 0;
@@ -13,7 +13,7 @@
 		height: 100vh;
 }
 
-.pucContainer {
+.puc_container {
 	font-family: 'Jura', sans-serif;
 
 	position: absolute;
@@ -34,11 +34,11 @@
 	grid-template-rows: repeat(10, 1fr);
 }
 
-.popUpInactive {
+.pop_up_inactive {
 	display: none;
 }
 
-.closeModuleBtn {
+.close_module_btn {
 	position: absolute;
 		top: 1em;
 		right: 1.25em;
@@ -47,7 +47,7 @@
 	background-color: #fff;
 }
 
-.statementBox {
+.statement_box {
 	grid-row: 2;
 	margin: auto;
 	width: 75%;

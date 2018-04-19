@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { fetchGitHub } from './fetchGitHub';
 import { commitsPresenter } from './commitsPresenter';
+import './css/gitHubWidget.css';
 
 export default class GitHubWidget extends Component {
 	constructor() {
@@ -29,7 +30,7 @@ export default class GitHubWidget extends Component {
 		const messagesArr = this.state.messages;
 		const errorMessage = this.state.error;
 		const activeStatus = this.state.activeStatus;
-		const isLoading = <div className="commitsPresenter isLoading">Loading...</div>;
+		const isLoading = <div className="commits_presenter is_loading">Loading...</div>;
 
 		let cardData;
 		if (errorMessage !== null) {
@@ -39,11 +40,11 @@ export default class GitHubWidget extends Component {
 		}
 
 		return (
-			<div className="gitHubWidgetContainer">
-				<div className="verticleTextAlignWrapper widgetTitle">
+			<div className="git_hub_widget_container">
+				<div className="verticle_text_align_wrapper widget_title">
 					<p>GitHub Commits Widget</p>
 				</div>
-				<div className="commitsPresenterContainer">
+				<div className="commits_presenter_container">
 					{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
 				</div>
 			</div>

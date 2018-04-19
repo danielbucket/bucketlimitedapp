@@ -1,4 +1,4 @@
-.gitHubWidgetContainer {
+.git_hub_widget_container {
 	grid-row: 3 / 4;
 	margin: auto;
 
@@ -12,7 +12,7 @@
 	padding-bottom: .1em;
 }
 
-.widgetTitle {
+.widget_title {
 	grid-row: 1;
 	
 	font-size: 1.5em;
@@ -23,19 +23,19 @@
 	padding-bottom: .25em;
 }
 
-.commitsPresenterContainer {
+.commits_presenter_container {
 	grid-row: 2 / 4;
 
 	height: 100%;
 	overflow: scroll;
 }
 
-.commitsPrint {
+.commits_print {
 	width: 95%;
 	margin: 0 auto;
 }
 
-.commitsPresenter {
+.commits_presenter {
 	display: grid;
 	grid-template-columns: 1fr 9fr;
 
@@ -46,26 +46,26 @@
 	border-radius: .2em;
 }
 
-.branchName {
+.branch_name {
 	border-right: 1px solid black;
 	padding-right: .2em;
 }
 
-.commitDetails {
+.commit_details {
 	font-size: 1.2em;
 	margin: 0 .25em .1em .75em;
 }
 
-.commitTimeStamp {
+.commit_time_stamp {
 	height: 1.5em;
 
 }
 
-.commitMessage {
+.commit_message {
 	border: 1px solid red;
 }
 
-.gitHubReopLink {
+.git_hub_repo_link {
 	grid-row: 5 / 6;
 
 	border: none;
@@ -76,7 +76,7 @@
 	margin: auto;
 }
 
-.cryptoCoinAddressContainer {
+.crypto_coin_address_container {
 	grid-row: 6 / 7;
 
 	display: grid;
@@ -87,7 +87,7 @@
 
 
 
-.isLoading {
+.is_loading {
 	grid-row: 4 / 5;
 	width: 20em;
 	margin: auto;

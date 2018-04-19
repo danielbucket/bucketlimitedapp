@@ -31,10 +31,10 @@ export default class PageUnderConstruction extends Component {
 		const userCreds = this.props.userCreds;
 
 		return (
-			<div className="popUpBarrier">
+			<div className="pop_up_barrier">
 			<Link to={{ pathname: '/home'}}>
-				<div className="pucContainer">
-						<button className="closeModuleBtn">
+				<div className="puc_container">
+						<button className="close_module_btn">
 							{ btnImage }
 						</button>
 						<div className="statementBox">
@@ -44,7 +44,7 @@ export default class PageUnderConstruction extends Component {
 						</div>
 
 						<GitHubWidget userCreds={ userCreds }/>
-						<button className="gitHubReopLink"
+						<button className="git_hub_repo_link"
 										onClick={ () => this.openNewBrowserTab() }>
 							Check out my GitHub repository
 						</button>
@@ -53,7 +53,7 @@ export default class PageUnderConstruction extends Component {
 							<div className="cryptoCoinAddress">
 								BTC: { BTC_address }
 							</div>
-							<div className="cryptoCoinAddress">
+							<div className="crypto_coin_address">
 								ETH: { ETH_address }
 							</div>
 						</div>
