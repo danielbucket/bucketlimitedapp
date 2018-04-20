@@ -47,7 +47,7 @@
 }
 
 .branch_name {
-	border-right: 1px solid black;
+	/*border-right: 1px solid black;*/
 	padding-right: .2em;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .commit_message {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 .git_hub_repo_link {

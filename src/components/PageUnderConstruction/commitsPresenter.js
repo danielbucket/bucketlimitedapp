@@ -3,44 +3,61 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import './css/commitsPresenter.css';
 
-export const commitsPresenter = (messagesArray,activeStatus,setState) => {
-
+export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 	const branchObj = messagesArray.map(branchObject => Object.keys(branchObject));
-	const messagesByBranchArray = messagesArray.map((branch,index) => branch[branchObj[index]]);
+	const style__branchNamesArray = {
+		"display": "grid",
+		"grid-template-columns": `repeat(${branchObj.length}, 1fr)`
+	};
 
-	const branchCommit_tabsWithCommitsList = messagesArray.map((bName,index) => {
-		const bNameString = Object.keys(bName).toString();
-		const commitsArray = messagesByBranchArray[index].map(commitCard => {
+	const branchNamesArray = messagesArray.map(branch => Object.keys(branch)).map((name,index) => {
+		const styleActive__branch_name_tab = { "border": "1px solid green" };
+		const styleInactive__branch_name_tab = { "border":"red" };
+		const style = activeView.activeStatus ? styleActive__branch_name_tab : styleInactive__branch_name_tab;
+
+		return (
+			<div 	style={ style }
+						key={ index }
+						onClick={ () => stateSet('activeBranch',index) }>
+				{ name }
+			</div>	
+		)
+	});
+
+//
+	const messagesByBranchArray = messagesArray.map((branch,index) => {
+		return branch[branchObj[index]].map(commitCard => {
+
+			const styleActive__branch = {	"display": "grid",
+																		"grid-row": `1 / span ${branchObj.length}`};
+			const styleInactive_branch = { "display": "none" };
+			const viewStyle = activeView.activeStatus ? styleActive__branch : styleInactive_branch;
+
 			return (
-				<div className="commit_card"
+				<div style={ viewStyle }
 							key={ commitCard.date }
 							onClick={ () => window.open(commitCard.url) }>
 					<Moment className="commit_time_stamp">
 						{ commitCard.date }
 					</Moment>
-					<div className="commitMessage">
+					<div className="commit_message">
 						{ commitCard.message }
 					</div>
 				</div>
 			)
-		});
-		
-		return (
-			<div className="commits_by_branch_container"
-						key={ Date.now() }>
-				<div className="branch_name">
-					{ bNameString }
-				</div>
-				<div className="commits_by_branch_list">
-					{ commitsArray }
-				</div>
-			</div>
-		)
+		})
 	});
 
+
+	const activeBranchView = activeView.activeBranch
 	return (
-		<div className="branchCommit_tabsWithCommitsList">
-			{ branchCommit_tabsWithCommitsList }
+		<div>
+			<div style={ style__branchNamesArray }>
+				{ branchNamesArray }
+			</div>
+			<div>
+				{ messagesByBranchArray[activeBranchView] }
+			</div>
 		</div>
 	)
 };

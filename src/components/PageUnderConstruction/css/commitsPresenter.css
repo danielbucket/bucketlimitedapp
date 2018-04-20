@@ -1,3 +1,29 @@
+.branchCommit_tabsWithCommitsList {
+	/*border: 1px solid red;*/
+	
+	/*display: grid;*/
+	/*grid-template-columns: repeat(4, 1fr);*/
+}
+
 .commits_by_branch_container {
-	border: 1px solid red;
+}
+
+.branch_name_tab {
+
+}
+
+.commit_card {
+
+}
+
+.commit_time_stamp {
+
+}
+
+.commit_message {
+
+}
+
+.commits_by_branch_list {
+
 }

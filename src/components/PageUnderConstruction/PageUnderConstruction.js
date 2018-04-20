@@ -32,7 +32,7 @@ export default class PageUnderConstruction extends Component {
 
 		return (
 			<div className="pop_up_barrier">
-			<Link to={{ pathname: '/home'}}>
+			<Link to={{ pathname: '/'}}>
 				<div className="puc_container">
 						<button className="close_module_btn">
 							{ btnImage }
