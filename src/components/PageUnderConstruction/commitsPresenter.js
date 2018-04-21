@@ -14,7 +14,6 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 		const styleActive__branch_name_tab = { "border": "1px solid green" };
 		const styleInactive__branch_name_tab = { "border":"red" };
 		const style = activeView.activeStatus ? styleActive__branch_name_tab : styleInactive__branch_name_tab;
-
 		return (
 			<div 	style={ style }
 						key={ index }
