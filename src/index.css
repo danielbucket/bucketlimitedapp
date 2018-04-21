@@ -25,15 +25,15 @@ body {
 }
 
 
-/* .verticalAlignWrapper should be <div> element */
-.verticleTextAlignWrapper {
+/* .vertical_align_wrapper should be <div> element */
+.verticle_text_align_wrapper {
 	display: table;
 }
 
 
 /* .verticleTextAlignWrapper should be <p> element */
 
-.verticleTextAlignWrapper p {
+.verticle_text_align_wrapper p {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;

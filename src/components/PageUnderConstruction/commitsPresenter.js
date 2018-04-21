@@ -4,6 +4,8 @@ import Moment from 'react-moment';
 import './css/commitsPresenter.css';
 
 export const commitsPresenter = (messagesArray,activeView,stateSet) => {
+	const activeBranchView = activeView.activeBranch
+
 	const branchObj = messagesArray.map(branchObject => Object.keys(branchObject));
 	const style__branchNamesArray = {
 		"display": "grid",
@@ -12,10 +14,18 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 
 	const branchNamesArray = messagesArray.map(branch => Object.keys(branch)).map((name,index) => {
 		const styleActive__branch_name_tab = { "border": "1px solid green" };
-		const styleInactive__branch_name_tab = { "border":"red" };
-		const style = activeView.activeStatus ? styleActive__branch_name_tab : styleInactive__branch_name_tab;
+		const styleInactive__branch_name_tab = { "border":"1px solid red" };
+
+		let style;
+		if (activeView.activeBranch === index) {
+			style = styleActive__branch_name_tab
+		} else {
+			style = styleInactive__branch_name_tab
+		}
+
 		return (
-			<div 	style={ style }
+			<div 	className="active_branch"
+						style={ style }
 						key={ index }
 						onClick={ () => stateSet('activeBranch',index) }>
 				{ name }
@@ -26,15 +36,8 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 //
 	const messagesByBranchArray = messagesArray.map((branch,index) => {
 		return branch[branchObj[index]].map(commitCard => {
-
-			const styleActive__branch = {	"display": "grid",
-																		"grid-row": `1 / span ${branchObj.length}`};
-			const styleInactive_branch = { "display": "none" };
-			const viewStyle = activeView.activeStatus ? styleActive__branch : styleInactive_branch;
-
 			return (
-				<div style={ viewStyle }
-							key={ commitCard.date }
+				<div key={ commitCard.date }
 							onClick={ () => window.open(commitCard.url) }>
 					<Moment className="commit_time_stamp">
 						{ commitCard.date }
@@ -48,9 +51,9 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 	});
 
 
-	const activeBranchView = activeView.activeBranch
+		// <div className="commits_presenter">
 	return (
-		<div>
+		<div className="commits_presenter">
 			<div style={ style__branchNamesArray }>
 				{ branchNamesArray }
 			</div>

@@ -16,13 +16,13 @@ export default class PageUnderConstruction extends Component {
 		this.state={}
 		
 		this.openNewBrowserTab = this.openNewBrowserTab.bind(this)
-	}
+	};
 
 	openNewBrowserTab() {
 		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
 
 		window.open(`https://github.com/${gitHubProfile}/${gitHubRepo}`)
-	}
+	};
 
 
 	render() {
@@ -32,37 +32,37 @@ export default class PageUnderConstruction extends Component {
 
 		return (
 			<div className="pop_up_barrier">
-			<Link to={{ pathname: '/'}}>
 				<div className="puc_container">
+					<Link to={{ pathname: '/home' }}>
 						<button className="close_module_btn">
 							{ btnImage }
 						</button>
-						<div className="statementBox">
-							<p>Page Under Construction</p>
-							<p>This is my personal webpage and is still very much in the works.</p>
-							<p>Please forgive the mess.</p>
-						</div>
+					</Link>
+					<div className="statement_box">
+						<p>Page Under Construction</p>
+						<p>This is my personal webpage and is still very much in the works.</p>
+						<p>Please forgive the mess.</p>
+					</div>
 
-						<GitHubWidget userCreds={ userCreds }/>
-						<button className="git_hub_repo_link"
-										onClick={ () => this.openNewBrowserTab() }>
-							Check out my GitHub repository
-						</button>
+					<GitHubWidget userCreds={ userCreds }/>
+					<button className="git_hub_repo_link"
+									onClick={ () => this.openNewBrowserTab() }>
+						Check out my GitHub repository
+					</button>
 
-						<div className="cryptoCoinAddressContainer">
-							<div className="cryptoCoinAddress">
-								BTC: { BTC_address }
-							</div>
-							<div className="crypto_coin_address">
-								ETH: { ETH_address }
-							</div>
+					<div className="crypto_coin_address_Container">
+						<div className="crypto_coin_address">
+							BTC: { BTC_address }
 						</div>
+						<div className="crypto_coin_address">
+							ETH: { ETH_address }
+						</div>
+					</div>
 				</div>
-			</Link>
 			</div>
 		)
-	}
-}
+	};
+};//
 
 
 PageUnderConstruction.propsTypes = {

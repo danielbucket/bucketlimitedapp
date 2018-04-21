@@ -1,12 +1,11 @@
-.branchCommit_tabsWithCommitsList {
-	/*border: 1px solid red;*/
+.commits_presenter {
+	border: 1px solid red;
 	
-	/*display: grid;*/
-	/*grid-template-columns: repeat(4, 1fr);*/
+	width: 95%;
+	margin: 0 auto;
 }
 
-.commits_by_branch_container {
-}
+
 
 .branch_name_tab {
 
@@ -17,7 +16,8 @@
 }
 
 .commit_time_stamp {
-
+	height: 1.5em;
+	
 }
 
 .commit_message {

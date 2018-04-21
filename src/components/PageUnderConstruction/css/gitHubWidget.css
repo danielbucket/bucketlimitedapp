@@ -1,4 +1,4 @@
-.git_hub_widget_container {
+.github_widget_container {
 	grid-row: 3 / 4;
 	margin: auto;
 
@@ -13,11 +13,12 @@
 }
 
 .widget_title {
+	display: table;
 	grid-row: 1;
 	
 	font-size: 1.5em;
 	border-bottom: .1em solid black;
-	height: 100%;
+	height: 2em;
 	width: 95%;
 	margin: 0 auto 1.25em auto;
 	padding-bottom: .25em;
@@ -30,21 +31,6 @@
 	overflow: scroll;
 }
 
-.commits_print {
-	width: 95%;
-	margin: 0 auto;
-}
-
-.commits_presenter {
-	display: grid;
-	grid-template-columns: 1fr 9fr;
-
-	font-size: 1em;
-	width: 100%;
-	margin: .5em auto;
-	padding: .5em;
-	border-radius: .2em;
-}
 
 .branch_name {
 	/*border-right: 1px solid black;*/
@@ -56,14 +42,6 @@
 	margin: 0 .25em .1em .75em;
 }
 
-.commit_time_stamp {
-	height: 1.5em;
-
-}
-
-.commit_message {
-	/*border: 1px solid red;*/
-}
 
 .git_hub_repo_link {
 	grid-row: 5 / 6;
