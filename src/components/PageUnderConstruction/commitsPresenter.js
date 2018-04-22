@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import './css/commitsPresenter.css';
 
 export const commitsPresenter = (messagesArray,activeView,stateSet) => {
-	const activeBranchView = activeView.activeBranch
+	const { activeBranch } = activeView;
 
 	const branchObj = messagesArray.map(branchObject => Object.keys(branchObject));
 	const style__branchNamesArray = {
@@ -13,33 +13,27 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 	};
 
 	const branchNamesArray = messagesArray.map(branch => Object.keys(branch)).map((name,index) => {
-		const styleActive__branch_name_tab = { "border": "1px solid green" };
-		const styleInactive__branch_name_tab = { "border":"1px solid red" };
-
 		let style;
-		if (activeView.activeBranch === index) {
-			style = styleActive__branch_name_tab
-		} else {
-			style = styleInactive__branch_name_tab
-		}
+		if (activeView.activeBranch === index) { style = "branch_tab_active branch_tab" }
+		else { style = "branch_tab_inactive branch_tab" }
 
 		return (
-			<div 	className="active_branch"
-						style={ style }
-						key={ index }
-						onClick={ () => stateSet('activeBranch',index) }>
+			<button className="branch_tab"
+							className={ style }
+							key={ index }
+							onClick={ () => stateSet('activeBranch',index) }>
 				{ name }
-			</div>	
+			</button>	
 		)
 	});
 
-//
 	const messagesByBranchArray = messagesArray.map((branch,index) => {
 		return branch[branchObj[index]].map(commitCard => {
 			return (
-				<div key={ commitCard.date }
+				<div className="commit_card"
+							key={ commitCard.date }
 							onClick={ () => window.open(commitCard.url) }>
-					<Moment className="commit_time_stamp">
+					<Moment className="commit_timestamp">
 						{ commitCard.date }
 					</Moment>
 					<div className="commit_message">
@@ -50,15 +44,14 @@ export const commitsPresenter = (messagesArray,activeView,stateSet) => {
 		})
 	});
 
-
-		// <div className="commits_presenter">
 	return (
 		<div className="commits_presenter">
-			<div style={ style__branchNamesArray }>
-				{ branchNamesArray }
+			<div className="branch_name_array"
+						style={ style__branchNamesArray }>
+					{ branchNamesArray }
 			</div>
-			<div>
-				{ messagesByBranchArray[activeBranchView] }
+			<div className="messages_by_branch_array">
+				{ messagesByBranchArray[activeBranch] }
 			</div>
 		</div>
 	)

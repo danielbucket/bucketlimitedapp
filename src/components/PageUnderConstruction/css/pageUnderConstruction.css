@@ -34,10 +34,6 @@
 	grid-template-rows: repeat(10, 1fr);
 }
 
-.pop_up_inactive {
-	display: none;
-}
-
 .close_module_btn {
 	position: absolute;
 		top: 1em;
@@ -55,4 +51,23 @@
 	text-align: center;
 }
 
+.git_hub_repo_link {
+	grid-row: 5 / 6;
+
+	border: none;
+	background: transparent;
+	width: 20em;
+	font-size: 1.5em;
+	text-align: center;
+	margin: auto;
+}
+
+.crypto_coin_address_container {
+	grid-row: 6 / 7;
+
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	width: 40em;
+	margin: 2em auto;
+}
 

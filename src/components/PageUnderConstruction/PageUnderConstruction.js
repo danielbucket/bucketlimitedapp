@@ -45,6 +45,7 @@ export default class PageUnderConstruction extends Component {
 					</div>
 
 					<GitHubWidget userCreds={ userCreds }/>
+					
 					<button className="git_hub_repo_link"
 									onClick={ () => this.openNewBrowserTab() }>
 						Check out my GitHub repository

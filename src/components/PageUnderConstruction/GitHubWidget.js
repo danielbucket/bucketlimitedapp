@@ -11,8 +11,7 @@ export default class GitHubWidget extends Component {
 			messages: [],
 			error: null,
 			activeStatus: true,
-			activeBranch: 0,
-			
+			activeBranch: 0
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
@@ -29,6 +28,7 @@ export default class GitHubWidget extends Component {
 	};
 
 	render() {
+		const repo = this.props.userCreds.gitHubRepo.toString();
 		const presenterStateset = this.stateSet;
 		const messagesArr = this.state.messages;
 		const errorMessage = this.state.error;
@@ -45,12 +45,8 @@ export default class GitHubWidget extends Component {
 
 		return (
 			<div className="github_widget_container">
-				<div className="widget_title">
-					<p>GitHub Commits Widget</p>
-				</div>
-				<div className="commits_presenter_container">
-					{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
-				</div>
+				<p className="widget_title">GitHub Commits Widget</p>
+				{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
 			</div>
 		);
 	};
