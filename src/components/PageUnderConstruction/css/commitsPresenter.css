@@ -1,0 +1,55 @@
+.commits_presenter {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.branch_name_array {
+	grid-row: 1;
+	width: 100%;
+	position: relative;
+		top: 0;
+		left: 0;
+}
+
+.branch_tab {
+	outline: none;
+	border: none;
+}
+
+.branch_tab:hover {
+  background-color: #f3ce0c;
+}
+
+.branch_tab_active {
+	background-color: #f3ce0c
+}
+
+.branch_tab_inactive {
+	background-color: gold;
+}
+
+.messages_by_branch_array {
+	grid-row: 2 / span 2;
+	height: 13em;
+	overflow: scroll;
+	margin-top: .2em;
+	margin-bottom: .2em;
+}
+
+.commit_card {
+	background-color: #f3ce0c;
+	border-radius: .15em;
+	margin: .15em 0;
+	padding: .2em .4em;
+	font-size: 1.25em;
+}
+
+.commit_timestamp {
+	border-bottom: .1em solid black;
+}
+
+.commit_message {
+	margin: .3em 0;
+	padding-left: 1em;
+}
+

@@ -1,76 +1,57 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import Moment from 'react-moment';
-
 import { fetchGitHub } from './fetchGitHub';
+import { commitsPresenter } from './commitsPresenter';
+import './css/gitHubWidget.css';
 
 export default class GitHubWidget extends Component {
-	constructor() {
+	constructor(props) {
 		super()
-		this.state={
+		this.state = {
 			messages: [],
-			error: ""
+			error: null,
+			activeStatus: true,
+			activeBranch: 0
 		}
 
 		this.fetchGitHub = fetchGitHub.bind(this)
 		this.stateSet = this.stateSet.bind(this)
-
-	}
+	};
 
 	componentWillMount() {
 		const { gitHubProfile, gitHubRepo } = this.props.userCreds;
-
-		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet);
-	}
+		this.fetchGitHub(gitHubProfile, gitHubRepo, this.stateSet)
+	};
 
 	stateSet(key,val) {
-
 		this.setState({ [key]:val })
-	}
+	};
 
 	render() {
+		const repo = this.props.userCreds.gitHubRepo.toString();
+		const presenterStateset = this.stateSet;
 		const messagesArr = this.state.messages;
-		const isLoading = <div className="commitCard isLoading">Loading...</div>
+		const errorMessage = this.state.error;
+		const activeView = {	activeStatus:this.state.activeStatus, 
+													activeBranch:this.state.activeBranch	};
+		const isLoading = <div className="is_loading">Loading...</div>;
 
-		const cardData = messagesArr.map((i, curVal) => {
-			const commitNum = (messagesArr.length - curVal);
-
-			return (
-				<div className="commitCard"
-						 key={ i.timeStamp }>
-					<div className="verticleTextAlignWrapper">
-						<p className="commitNum">
-							#{ commitNum }
-						</p>22
-					</div>
-
-					<div className="commitDetails">
-						<div className="commitTimeStamp">
-							<Moment>{ i.timeStamp }</Moment>
-						</div>
-						<div className="commitMessage">
-							{ i.message }
-						</div>
-					</div>
-				</div>
-			)
-		})
+		let cardData;
+		if (errorMessage !== null) {
+			cardData = <div>{ errorMessage }</div>
+		} else if (messagesArr.length > 0) {
+			cardData = commitsPresenter(messagesArr,activeView,presenterStateset)
+		};
 
 		return (
-			<div className="gitHubWidgetContainer">
-				<div className="verticleTextAlignWrapper widgetTitle">
-					<p>GitHub Commits Widget</p>
-				</div>
-				<div className="commitCardContainer">
-					{ messagesArr.length > 0 ? cardData : isLoading }
-				</div>
+			<div className="github_widget_container">
+				<p className="widget_title">GitHub Commits Widget</p>
+				{ messagesArr.length > 0 || errorMessage !== null ? cardData : isLoading }
 			</div>
-		)
-	}
+		);
+	};
 };
 
 GitHubWidget.propTypes = {
-	userCreds:ProcessingInstruction.isRequired,
 	userCreds: PropTypes.object
-}
+};
