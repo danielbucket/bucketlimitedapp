@@ -32,7 +32,6 @@ body {
 
 
 /* .verticleTextAlignWrapper should be <p> element */
-
 .verticle_text_align_wrapper p {
 	display: table-cell;
 	vertical-align: middle;

@@ -26,7 +26,6 @@ export default class PageUnderConstruction extends Component {
 
 
 	render() {
-		const btnImage = this.props.btnImage || "X";
 		const { gitHubProfile, gitHubRepo, BTC_address, ETH_address } = this.props.userCreds;
 		const userCreds = this.props.userCreds;
 
@@ -34,9 +33,7 @@ export default class PageUnderConstruction extends Component {
 			<div className="pop_up_barrier">
 				<div className="puc_container">
 					<Link to={{ pathname: '/home' }}>
-						<button className="close_module_btn">
-							{ btnImage }
-						</button>
+						<button className="close_module_btn">X</button>
 					</Link>
 					<div className="statement_box">
 						<p>Page Under Construction</p>
