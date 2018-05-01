@@ -2,30 +2,26 @@
 /* align-* is column axis */
 
 .header_container {
-	background-color: #ffffff;
-	height: 100%;
-	margin: 0 1em;
 	display: grid;
-	grid-column-gap: 1em;
-	grid-template-columns: 
-		[logo] 1fr
-		[title] 2fr
-		[app] 1fr;
+	grid-template-columns: 1fr 8fr 1fr;
 }
 
 .business_logo {
-	width: 10em;
-	height: 10em;
+	grid-column: 1;
 
-	justify-self: left;
-	align-self: center;
-	margin-left: 2em;
+	height: 100%;
+	padding: .1em;
 }
 
 .business_name {
+	grid-row: 1;
+	grid-column: 2;
+
+	margin: auto;
 	font-family: 'Roboto', sans-serif;
-	font-size: 5em;
-	margin-bottom: .25em;
+	width: 100%;
+	text-align: center;
+	font-size: 2.5em;
 	color: var(--bucket-brown);
 }
 
@@ -35,4 +31,31 @@
 
 .un {
 	color: #615a4f07;
+}
+
+.hamburger_menu {
+	grid-column: 3;
+
+	height: 100%;
+	padding: .1em;
+}
+
+.login_module_container {
+	grid-column: 3;
+
+	position: absolute;
+		top: 4em;
+		right: 0;
+	overflow-y: hidden;
+}
+
+/*__SLIDE__EFFECTS__*/
+.login_box_shiftRight {
+	transform: translateX(18.5em);
+	transition: all 1s ease;
+}
+
+.login_box_shiftLeft {
+	transform: translateX();
+	transition: all 1s ease;
 }

@@ -23,9 +23,9 @@ export default class App extends Component {
 
 
     return (
-      <div>
+      <div className="App_wrapper">
         <Route exact path="/"  render={
-            ({ location, history }) => <PageUnderConstruction userCreds={ userCreds } />
+            ({ location,history }) => <PageUnderConstruction userCreds={ userCreds } />
            } />
         <Route to="/home" render={
           () => 

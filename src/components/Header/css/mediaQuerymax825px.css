@@ -1,38 +1,38 @@
-@media (max-width: 825px) {
+	/*@media (max-width: 825px) {*/
 
-	.header_container {
+	/*.header_container {*/
 		/*background-color: yellow;*/
 
-		grid-template-rows:
-			[headerMobileViewTOP] 1fr
-			[headerMobileViewBOTTOM] 1fr;
+		/*grid-templat: ;e-rows:*/
+			/*[headerMobi: ;leViewTOP] 1fr*/
+			/*[headerMobi: ;leViewBOTTOM] 1fr;*/
 			
-		grid-template-columns:
-			[logo] 1fr
-			[app] 1fr;
-	}
+		/*grid-temp: ;late-columns:*/
+			/*[logo]:; 1fr*/
+			/*[app] 1fr;*/
+	/*}*/
 
-	.business_name {
-		font-size: calc(.25em + 6vw);
-		line-height: calc(.25em + 6vw);
-		letter-spacing: .1em;
+	/*.business_name {*/
+		/*font-size: ;: calc(.25em + 6vw);*/
+		/*line-heig: ;ht: calc(.25em + 6vw);*/
+		/*letter-sp: ;acing: .1em;*/
+/**/
+		/*grid-colu: ;mn: span 2;*/
+		/*grid-row::; 1;*/
+/**/
+    /*justify-s: ;elf: center;*/
+    /*align-se: ;lf: center;*/
+	/*}*/
 
-		grid-column: span 2;
-		grid-row: 1;
+	/*.bucket_logo {*/
+		/*grid-colu: ;mn: 1 / 1;*/
+		/*grid-row::; 2;*/
+	/*}*/
 
-    justify-self: center;
-    align-self: center;
-	}
-
-	.bucket_logo {
-		grid-column: 1 / 1;
-		grid-row: 2;
-	}
-
-	.login_box {
+	/*.login_box {*/
 		/*justify-self: right;*/
 		/*align-self: center;*/
-		grid-column: 2 / 2;
-		grid-row: 2;
-	}
-}
+		/*grid-colu: ;mn: 2 / 2;*/
+		/*grid-row::; 2;*/
+	/*}*/
+/*}*/
