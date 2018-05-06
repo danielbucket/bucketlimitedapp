@@ -2,9 +2,12 @@
 	--bucket-brown: #615a4f;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 body {

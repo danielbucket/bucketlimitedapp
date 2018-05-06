@@ -43,10 +43,10 @@ export default class HeaderComponent extends Component {
             onClick={ () => this.stateSet("boxSlider", !sliderBool) }
             src={ connectionSVG }/>
       <div className="login_module_container">
-      <div className={ boxSlider }>
-        <LoginModule boxSlider={ !boxSlider }
-                      stateSet={ this.stateSet }/>
-      </div>
+        <div className={ boxSlider }>
+          <LoginModule boxSlider={ !boxSlider }
+                        stateSet={ this.stateSet }/>
+        </div>
       </div>
     </header>
 		)

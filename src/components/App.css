@@ -6,8 +6,8 @@
 .App_container {
 	display: grid;
 	grid-template-rows:
-		[header] 4em
-		[main] calc(100vh - 14em)
+		[header] 6em
+		[main] calc(100vh - 16em)
 		[footer] 10em;
 	grid-gap: 0;
 }

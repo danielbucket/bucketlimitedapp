@@ -27,17 +27,17 @@ export default class LoginModule extends Component {
 	}
 
 	toggleClass() {
-		// the name toggleClass can be misleading here as it 
-		// doesn't actually change the className. Instead it
-		// changes a true / false value
-
 		if (!this.props.boxSlider) {
 			this.props.stateSet("boxSlider",true)
 		} else { this.props.stateSet("boxSlider",false) }
 	}
 
 	submitLogin() {
-
+		this.setState({
+			userName: "",
+			email: "",
+			password: ""
+		})
 		this.toggleClass()
 	}
 
